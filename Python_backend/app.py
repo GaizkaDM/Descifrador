@@ -155,7 +155,7 @@ if __name__ == '__main__':
     print("      API CIFRADO VIGENÈRE")
     print("=" * 50)
     print(f"\n🚀 Servidor iniciando en http://127.0.0.1:5000")
-    print(f"📅 Autor: Gaizka")
+    print(f"📅 Autor: Gaizka, Diego")
     print(f"\n📋 Endpoints disponibles:")
     print(f"  GET  /                        - Información de la API")
     print(f"  GET  /api/health             - Estado del servidor")
