@@ -213,6 +213,7 @@ public class MainController {
         if (c < base || c > 126) return ch; // deja fuera de rango tal cual
         return (char) (base + ((c - base + shift) % span));
     }
+
 }
 
 
