@@ -9,5 +9,8 @@
         <module name="descifrador" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Descifrador" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
