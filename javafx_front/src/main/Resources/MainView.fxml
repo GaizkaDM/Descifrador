@@ -31,29 +31,35 @@
                 </TextField>
 
                    <Region HBox.hgrow="ALWAYS" />
-   
-                   <!-- Botones de acción -->
-                <Button fx:id="cifrarBtn" onAction="#handleCifrar" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 30;" text="Cifrar">
-                    <HBox.margin>
-                        <Insets right="10" />
-                    </HBox.margin>
-                </Button>
 
-                   <Button fx:id="descifrarBtn" onAction="#handleDescifrar" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 30;" text="Descifrar">
-                    <HBox.margin>
-                        <Insets right="100.0" />
-                    </HBox.margin>
-                </Button>
+                <!-- Botones de acción -->
+                <Button fx:id="cifrarBtn"
+                        onAction="#handleCifrar"
+                        text="Cifrar"
+                        style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 20 50;"
+                        HBox.hgrow="ALWAYS"
+                        maxWidth="Infinity"
+                        prefHeight="65" />
+
+                <Button fx:id="descifrarBtn"
+                        onAction="#handleDescifrar"
+                        text="Descifrar"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 20 50;"
+                        HBox.hgrow="ALWAYS"
+                        maxWidth="Infinity"
+                        prefHeight="65" />
+
+
             </HBox>
 
                <!-- ComboBox para seleccionar algoritmo -->
-            <HBox alignment="CENTER_LEFT" minWidth="-Infinity" prefHeight="27.0" prefWidth="664.0" spacing="10">
-                <Label style="-fx-text-fill: white; -fx-font-size: 13px;" text="Algoritmo:">
+            <HBox alignment="CENTER_LEFT" spacing="10" maxWidth="400">
+                <Label text="Algoritmo:" style="-fx-text-fill: white; -fx-font-size: 13px;">
                     <HBox.margin>
                         <Insets left="20" />
                     </HBox.margin>
                 </Label>
-                <ComboBox fx:id="algoritmoCombo" prefWidth="200" style="-fx-font-size: 13px;">
+                <ComboBox fx:id="algoritmoCombo" prefWidth="180" style="-fx-font-size: 13px;">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="Vigenère" />
@@ -62,6 +68,7 @@
                     </items>
                 </ComboBox>
             </HBox>
+
         </VBox>
     </top>
 
