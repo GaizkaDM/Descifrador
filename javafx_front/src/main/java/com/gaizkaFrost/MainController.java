@@ -1,5 +1,6 @@
 package com.gaizkaFrost;
 
+import com.gaizkaFrost.AES.CryptoException;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
@@ -8,6 +9,9 @@ import javafx.scene.input.ClipboardContent;
 import java.io.File;
 import java.io.FileWriter;
 import java.nio.file.Files;
+import com.gaizkaFrost.AES.UseCases;
+import java.nio.charset.StandardCharsets;
+
 
 public class MainController {
 
@@ -64,7 +68,10 @@ public class MainController {
                 actualizarStatus("Texto cifrado con Vigenère");
             } else {
                 // Usar AES local
-                resultado = AESCipher.cifrar(texto, clave);
+                resultado = UseCases.encryptToBase64(
+                        texto.getBytes(StandardCharsets.UTF_8),
+                        clave.toCharArray(),
+                        "app=Encriptador;v=1");
                 actualizarStatus("Texto cifrado con AES");
             }
 
@@ -100,16 +107,20 @@ public class MainController {
                 actualizarStatus("Texto descifrado con Vigenère");
             } else {
                 // Usar AES local
-                resultado = AESCipher.descifrar(textoCifrado, clave);
+                byte[] plain = UseCases.decryptFromBase64(textoCifrado, clave.toCharArray());
+                resultado = new String(plain, StandardCharsets.UTF_8);
                 actualizarStatus("Texto descifrado con AES");
             }
 
             textoSalidaArea.setText(resultado);
 
+        } catch (CryptoException e) {
+            // Tag inválido / contraseña o datos corruptos
+            mostrarError("Contraseña incorrecta o datos corruptos");
         } catch (Exception e) {
             mostrarError("Error al descifrar: " + e.getMessage());
         }
-    }
+        }
 
     @FXML
     private void handleCargarArchivo() {
