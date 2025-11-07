@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.proyecto.MainController"
+            prefHeight="600.0" prefWidth="900.0">
+
+    <!-- Header -->
+    <top>
+        <VBox spacing="10" style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <TextField fx:id="claveField" promptText="Introduce la clave"
+                           prefWidth="400" style="-fx-font-size: 14px;">
+                    <HBox.margin>
+                        <Insets left="20"/>
+                    </HBox.margin>
+                </TextField>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <!-- Botones de acción -->
+                <Button fx:id="cifrarBtn" text="Cifrar"
+                        style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 30;"
+                        onAction="#handleCifrar">
+                    <HBox.margin>
+                        <Insets right="10"/>
+                    </HBox.margin>
+                </Button>
+
+                <Button fx:id="descifrarBtn" text="Descifrar"
+                        style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 30;"
+                        onAction="#handleDescifrar">
+                    <HBox.margin>
+                        <Insets right="20"/>
+                    </HBox.margin>
+                </Button>
+            </HBox>
+
+            <!-- ComboBox para seleccionar algoritmo -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Algoritmo:" style="-fx-text-fill: white; -fx-font-size: 13px;">
+                    <HBox.margin>
+                        <Insets left="20"/>
+                    </HBox.margin>
+                </Label>
+                <ComboBox fx:id="algoritmoCombo" prefWidth="200"
+                          style="-fx-font-size: 13px;">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Vigenère"/>
+                            <String fx:value="AES"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Center - Áreas de texto -->
+    <center>
+        <HBox spacing="20" style="-fx-padding: 20;">
+            <!-- Panel izquierdo - Texto de entrada -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label text="Texto de entrada:" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                <TextArea fx:id="textoEntradaArea" wrapText="true"
+                          promptText="Escribe el texto aquí..."
+                          VBox.vgrow="ALWAYS"
+                          style="-fx-font-size: 13px; -fx-border-color: #bdc3c7; -fx-border-width: 2; -fx-border-radius: 5;"/>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="Cargar archivo" onAction="#handleCargarArchivo"
+                            style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-size: 12px; -fx-padding: 8 20;"/>
+                    <Button text="Limpiar" onAction="#handleLimpiarEntrada"
+                            style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-font-size: 12px; -fx-padding: 8 20;"/>
+                </HBox>
+            </VBox>
+
+            <!-- Flecha central -->
+            <VBox alignment="CENTER" spacing="10" prefWidth="80">
+                <Label text="➜" style="-fx-font-size: 48px; -fx-text-fill: #34495e;"/>
+            </VBox>
+
+            <!-- Panel derecho - Texto de salida -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label text="Texto de salida:" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+
+                <TextArea fx:id="textoSalidaArea" wrapText="true"
+                          promptText="El resultado aparecerá aquí..."
+                          editable="false"
+                          VBox.vgrow="ALWAYS"
+                          style="-fx-font-size: 13px; -fx-border-color: #bdc3c7; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-color: #ecf0f1;"/>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="Guardar resultado" onAction="#handleGuardarResultado"
+                            style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 12px; -fx-padding: 8 20;"/>
+                    <Button text="Copiar" onAction="#handleCopiar"
+                            style="-fx-background-color: #16a085; -fx-text-fill: white; -fx-font-size: 12px; -fx-padding: 8 20;"/>
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <!-- Footer - Barra de estado -->
+    <bottom>
+        <HBox style="-fx-background-color: #34495e; -fx-padding: 10 20;" alignment="CENTER_LEFT">
+            <Label fx:id="statusLabel" text="Listo" style="-fx-text-fill: white; -fx-font-size: 12px;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
