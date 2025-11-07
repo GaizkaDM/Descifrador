@@ -3,11 +3,10 @@ API REST para cifrado Vigenère
 Servidor Flask que expone endpoints para cifrar y descifrar texto
 Integrado con el módulo vigenere.py existente
 """
-
+import logging
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from vigenere import cifrar_vigenere, descifrar_vigenere
-import logging
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
@@ -77,7 +76,7 @@ def cifrar():
         # Cifrar usando tu función existente
         texto_cifrado = cifrar_vigenere(texto, clave)
 
-        logger.info(f"Texto cifrado exitosamente (longitud: {len(texto)})")
+        logger.info("Texto cifrado exitosamente (longitud: %d)", len(texto))
 
         return jsonify({
             'texto_cifrado': texto_cifrado,
@@ -86,13 +85,15 @@ def cifrar():
         }), 200
 
     except ValueError as ve:
-        logger.error(f"Error de validación: {str(ve)}")
+        logger.error("Error de validación: %s", str(ve))
         return jsonify({'error': str(ve)}), 400
 
-    except Exception as e:
-        logger.error(f"Error al cifrar: {str(e)}")
-        return jsonify({'error': f'Error al cifrar: {str(e)}'}), 500
-
+    except KeyError as ke:
+        logger.error("Error de clave: %s", str(ke))
+        return jsonify({'error': f'Error de clave: {str(ke)}'}), 400
+    except TypeError as te:
+        logger.error("Error de tipo: %s", str(te))
+        return jsonify({'error': f'Error de tipo: {str(te)}'}), 400
 
 @app.route('/api/vigenere/descifrar', methods=['POST'])
 def descifrar():
@@ -123,7 +124,7 @@ def descifrar():
         # Descifrar usando tu función existente
         texto_descifrado = descifrar_vigenere(texto_cifrado, clave)
 
-        logger.info(f"Texto descifrado exitosamente (longitud: {len(texto_cifrado)})")
+        logger.info("Texto descifrado exitosamente (longitud: %d)", len(texto_cifrado))
 
         return jsonify({
             'texto_descifrado': texto_descifrado,
@@ -132,21 +133,29 @@ def descifrar():
         }), 200
 
     except ValueError as ve:
-        logger.error(f"Error de validación: {str(ve)}")
+        logger.error("Error de validación: %s", str(ve))
         return jsonify({'error': str(ve)}), 400
-
-    except Exception as e:
-        logger.error(f"Error al descifrar: {str(e)}")
-        return jsonify({'error': f'Error al descifrar: {str(e)}'}), 500
+    except KeyError as ke:
+        logger.error("Error de clave: %s", str(ke))
+        return jsonify({'error': f'Error de clave: {str(ke)}'}), 400
+    except TypeError as te:
+        logger.error("Error de tipo: %s", str(te))
+        return jsonify({'error': f'Error de tipo: {str(te)}'}), 400
+    # Puedes agregar aquí excepciones específicas si esperas otras posibles fallas
+    # Por ejemplo, para errores inesperados de importación o de lógica:
+    # except ImportError as ie:
+    #     logger.error(f"Error de importación: {str(ie)}")
+    #     return jsonify({'error': f'Error de importación: {str(ie)}'}), 500
+    # Si no hay excepciones específicas adicionales, puedes eliminar el bloque general.
 
 
 @app.errorhandler(404)
-def not_found(error):
+def not_found(_error):
     return jsonify({'error': 'Endpoint no encontrado'}), 404
 
 
 @app.errorhandler(405)
-def method_not_allowed(error):
+def method_not_allowed(_):
     return jsonify({'error': 'Método HTTP no permitido'}), 405
 
 
@@ -154,14 +163,14 @@ if __name__ == '__main__':
     print("=" * 50)
     print("      API CIFRADO VIGENÈRE")
     print("=" * 50)
-    print(f"\n🚀 Servidor iniciando en http://127.0.0.1:5000")
-    print(f"📅 Autor: Gaizka, Diego")
-    print(f"\n📋 Endpoints disponibles:")
-    print(f"  GET  /                        - Información de la API")
-    print(f"  GET  /api/health             - Estado del servidor")
-    print(f"  POST /api/vigenere/cifrar    - Cifrar texto")
-    print(f"  POST /api/vigenere/descifrar - Descifrar texto")
-    print(f"\n✅ Servidor listo para recibir peticiones")
+    print("\n🚀 Servidor iniciando en http://127.0.0.1:5000")
+    print("📅 Autor: Gaizka, Diego")
+    print("\n📋 Endpoints disponibles:")
+    print("  GET  /                        - Información de la API")
+    print("  GET  /api/health             - Estado del servidor")
+    print("  POST /api/vigenere/cifrar    - Cifrar texto")
+    print("  POST /api/vigenere/descifrar - Descifrar texto")
+    print("\n✅ Servidor listo para recibir peticiones")
     print("=" * 50)
 
     app.run(host='127.0.0.1', port=5000, debug=True)
