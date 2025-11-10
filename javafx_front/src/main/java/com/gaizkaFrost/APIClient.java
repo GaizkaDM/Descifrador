@@ -10,7 +10,7 @@ import org.json.JSONObject;
  * Cliente HTTP para consumir la API REST de cifrado Vigenère
  */
 public class APIClient {
-    private static final String API_BASE_URL = "http://127.0.0.1:5000/api/vigenere/";
+    private static final String API_BASE_URL = "http://172.20.106.20:5000/api/vigenere/";
     private static final HttpClient client = HttpClient.newHttpClient();
 
     /**
