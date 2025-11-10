@@ -23,7 +23,7 @@ public class Main extends Application
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainView.fxml"));
         Scene scene = new Scene(loader.load(), 600, 500);
         stage.setScene(scene);
-        stage.setMinWidth(760);
+        stage.setMinWidth(790);
         stage.setMinHeight(500);
         stage.setTitle("Adding/Deleting Rows in a TableView");
         stage.show();
