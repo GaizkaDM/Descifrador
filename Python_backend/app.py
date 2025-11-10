@@ -197,7 +197,7 @@ if __name__ == '__main__':
     print("  POST /api/vigenere/descifrar - Descifrar texto")
     print("\n✅ Servidor listo para recibir peticiones")
     print("=" * 50)
-    
+
     app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
-    
-    app.run(host='127.0.0.1', port=5000, debug=True)
+
+    app.run(host='172.20.106.20', port=5000, debug=True)

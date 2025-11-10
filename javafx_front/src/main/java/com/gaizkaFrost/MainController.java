@@ -47,12 +47,15 @@ public class MainController {
             String resultado;
 
             if ("Vigenère".equals(algoritmo)) {
-                // Si ya tienes un APIClient propio, cambia esta línea por tu llamada:
-                // resultado = APIClient.cifrarVigenere(texto, clave);
-                resultado = cifrarVigenereLocal(texto, clave);
+                resultado = APIClient.cifrarVigenere(texto, clave);
+
+                // Validación ejemplo: resultado no vacío y solo A-Z
+                if (resultado == null || resultado.isEmpty() || !resultado.matches("[A-Z]+")) {
+                    throw new Exception("Texto cifrado inválido recibido de la API");
+                }
+
                 actualizarStatus("Texto cifrado con Vigenère");
             } else {
-                // AES local (Base64)
                 resultado = UseCases.encryptToBase64(
                         texto.getBytes(StandardCharsets.UTF_8),
                         clave.toCharArray(),
@@ -64,7 +67,8 @@ public class MainController {
             textoSalidaArea.setText(resultado);
 
         } catch (Exception e) {
-            mostrarError("Error al cifrar: " + e.getMessage());
+            e.printStackTrace();
+            mostrarError("Error al cifrar: " + (e.getMessage() != null ? e.getMessage() : "Error desconocido"));
         }
     }
 
@@ -79,8 +83,7 @@ public class MainController {
 
             if ("Vigenère".equals(algoritmo)) {
                 // Si ya tienes un APIClient propio, cambia esta línea por tu llamada:
-                // resultado = APIClient.descifrarVigenere(textoCifrado, clave);
-                resultado = descifrarVigenereLocal(textoCifrado, clave);
+                 resultado = APIClient.descifrarVigenere(textoCifrado, clave);
                 actualizarStatus("Texto descifrado con Vigenère");
             } else {
                 // AES local
