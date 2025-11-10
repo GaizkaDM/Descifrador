@@ -78,9 +78,8 @@ public class MainController {
             String resultado;
 
             if ("Vigenère".equals(algoritmo)) {
-                // Si ya tienes un APIClient propio, cambia esta línea por tu llamada:
-                // resultado = APIClient.descifrarVigenere(textoCifrado, clave);
-                resultado = descifrarVigenereLocal(textoCifrado, clave);
+
+                resultado = APIClient.descifrarVigenere(textoCifrado, clave);
                 actualizarStatus("Texto descifrado con Vigenère");
             } else {
                 // AES local
