@@ -143,13 +143,20 @@ public class MainController {
                 return;
             }
 
-            if (rutaImagenSeleccionada != null) {
-                // Estamos en modo imagen
+            String texto = textoEntradaArea != null ? textoEntradaArea.getText() : "";
+
+            if (texto != null && !texto.isBlank()) {
+                // Si hay texto, mandamos a cifrar texto y salimos de "modo imagen"
+                rutaImagenSeleccionada = null;
+                cifrarTexto();
+            } else if (rutaImagenSeleccionada != null) {
+                // No hay texto, pero sí imagen seleccionada
                 cifrarImagen();
             } else {
-                // Modo texto
-                cifrarTexto();
+                actualizarStatus("No hay texto ni imagen para cifrar");
+                showInfoAlert("Escribe un texto o carga una imagen antes de cifrar.");
             }
+
         } catch (Exception e) {
             logger.error("Error al cifrar", e);
             actualizarStatus("Error al cifrar");
@@ -176,13 +183,16 @@ public class MainController {
                 return;
             }
 
-            if (rutaImagenSeleccionada == null) {
-                // MODO TEXTO: desciframos el contenido del TextArea
+            String texto = textoEntradaArea != null ? textoEntradaArea.getText() : "";
+
+            if (texto != null && !texto.isBlank()) {
+                // Hay texto en la entrada → lo tratamos como texto cifrado
                 descifrarTextoDesdeTextArea();
             } else {
-                // MODO IMAGEN: pedimos el .enc a descifrar
+                // No hay texto → asumimos que quieres descifrar una imagen .enc
                 descifrarImagenConFileChooser();
             }
+
         } catch (Exception e) {
             logger.error("Error al descifrar", e);
             actualizarStatus("Error al descifrar");
@@ -390,6 +400,7 @@ public class MainController {
         if (textoEntradaArea != null) {
             textoEntradaArea.clear();
         }
+        rutaImagenSeleccionada = null; // muy importante
         actualizarStatus("Entrada limpiada");
     }
 
