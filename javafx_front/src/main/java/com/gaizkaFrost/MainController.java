@@ -178,6 +178,16 @@ public class MainController {
         a.showAndWait();
     }
 
+    private String safeGet(ComboBox<String> combo){
+        if (combo == null || combo.getValue() == null){
+            return "";
+        }
+        return combo.getValue();
+    }
+    private String nonNull (String s){
+        return s == null ? "" : s;
+    }
+
     private Window getWindow() {
         return statusLabel != null ? statusLabel.getScene().getWindow() : null;
     }
