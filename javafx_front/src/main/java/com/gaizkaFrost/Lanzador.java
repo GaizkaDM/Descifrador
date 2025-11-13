@@ -1,24 +1,37 @@
 package com.gaizkaFrost;
 
 /**
- * Clase lanzadora de la aplicación.
+ * <h2>Clase Lanzador</h2>
+ * Clase encargada de proporcionar un punto de entrada alternativo para iniciar la
+ * aplicación JavaFX.
+ *
  * <p>
- * Proporciona un punto de entrada alternativo para iniciar la aplicación
- * JavaFX a través del metodo {@link Main#main(String[])}. Es útil en
- * algunos entornos donde se requiere una clase con metodo {@code main} independiente.
+ * Algunos entornos requieren que la aplicación disponga de una clase propia con un
+ * método {@code main} separado, especialmente al generar artefactos ejecutables
+ * o lanzarla desde ciertos gestores de ejecución. Esta clase simplemente delega la
+ * llamada al método {@link Main#main(String[])}.
  * </p>
  *
- * <p><b>Ejemplo de ejecución:</b></p>
- * <pre>{@code
+ * <h3>Ejemplo de ejecución</h3>
+ * <pre>
+ * {@code
  * java com.gaizkaFrost.Lanzador
- * }</pre>
+ * }
+ * </pre>
+ *
+ * @author Gaizka
+ * @author Diego
+ * @version 1.0
+ * @since 2025
  */
 public class Lanzador {
 
     /**
-     * Metodo principal que delega la ejecución al metodo {@link Main#main(String[])}.
+     * <h3>Método main</h3>
+     * Método principal encargado de redirigir la ejecución al método
+     * {@link Main#main(String[])} de la clase principal de la aplicación.
      *
-     * @param args argumentos de línea de comandos, que se pasan a {@code App.main(args)}
+     * @param args Argumentos recibidos desde la línea de comandos.
      */
     public static void main(String[] args) {
         Main.main(args);

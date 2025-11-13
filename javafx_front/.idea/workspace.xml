@@ -5,10 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56387091-5a77-4bc5-b9c8-2f55cd6b62d0" name="Changes" comment="Fix corregidos imports sin usar">
-      <change afterPath="$PROJECT_DIR$/src/main/Resources/manual-usuario.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/CipherArtifact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/CipherArtifact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/CryptoEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/CryptoEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/CryptoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/CryptoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/DemoMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/DemoMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/KeyDerivation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/KeyDerivation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/KeyMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/KeyMaterial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/Policy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/Policy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/RandomSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/RandomSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/Serializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/Serializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AESCryptoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AESCryptoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AESImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AESImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/APIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/APIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/Lanzador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/Lanzador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +61,7 @@
     "Maven.descifrador [clean].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Dev-DFG",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/diieg/Desktop/DAM/PROYECTOS/Descifrador/javafx_front",

@@ -34,12 +34,40 @@ import java.util.ResourceBundle;
 import javafx.concurrent.Task;
 import javafx.scene.web.WebView;
 
+/**
+ * <h2>Controlador principal de la aplicación</h2>
+ * Clase encargada de gestionar la lógica de la interfaz gráfica:
+ * carga de archivos, cifrado y descifrado de texto e imágenes (AES / Vigenère),
+ * gestión de idioma, menús y actualizaciones de estado.
+ *
+ * <p>Se comunica con servicios auxiliares como {@code AESImageService} y
+ * {@code APIClient} para realizar las operaciones criptográficas.</p>
+ *
+ * @author Gaizka
+ * @author Diego
+ * @version 1.0
+ * @since 2025
+ */
 public class MainController {
 
+    /**
+     * Logger de la clase para registrar información, advertencias y errores.
+     */
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
+    /**
+     * Transformación criptográfica utilizada para AES en modo GCM sin padding.
+     */
     private static final String TRANSFORMATION = "AES/GCM/NoPadding";
+
+    /**
+     * Longitud del vector de inicialización (IV) en bytes para GCM.
+     */
     private static final int IV_LENGTH = 12;   // 12 bytes típico GCM
+
+    /**
+     * Longitud de la etiqueta de autenticación GCM en bits.
+     */
     private static final int TAG_LENGTH = 128; // bits
 
     // ====== Controles mapeados 1:1 con el FXML ======
@@ -74,15 +102,32 @@ public class MainController {
     @FXML private Button copiarBtn;
 
     @FXML private Label statusLabel;
-// Añade más controles que necesites actualizar
+    // Añade más controles que necesites actualizar
 
+    /**
+     * Locale actual de la interfaz (idioma seleccionado).
+     */
     Locale currentLocale;
-    ResourceBundle bundle = ResourceBundle.getBundle("messages", new Locale("es", "ES"));
-               // fx:id="descifrarBtn"
 
+    /**
+     * Recurso de mensajes internacionalizados (i18n) para los textos de la interfaz.
+     */
+    ResourceBundle bundle = ResourceBundle.getBundle("messages", new Locale("es", "ES"));
+    // fx:id="descifrarBtn"
+
+    /**
+     * Si no es null, indica que se está trabajando con una imagen
+     * (original o cifrada) en lugar de texto.
+     */
     // Si no es null, estamos trabajando con imagen
     private Path rutaImagenSeleccionada;
 
+    /**
+     * <h3>Método de inicialización del controlador</h3>
+     * Se ejecuta automáticamente tras la carga del FXML.
+     * Configura el idioma por defecto, inicializa el combo de algoritmos
+     * y establece el estado inicial de la interfaz.
+     */
     @FXML
     public void initialize() {
         logger.info("Inicializando MainController");
@@ -99,6 +144,11 @@ public class MainController {
         }
     }
 
+    /**
+     * Actualiza el texto del label de estado y registra el mensaje en el logger.
+     *
+     * @param mensaje Mensaje a mostrar en la barra de estado.
+     */
     private void actualizarStatus(String mensaje) {
         if (statusLabel != null) {
             statusLabel.setText(mensaje);
@@ -109,6 +159,14 @@ public class MainController {
     // ============================================================
     // CARGAR ARCHIVO (texto o imagen) - botón "Cargar archivo"
     // ============================================================
+
+    /**
+     * Maneja la acción de cargar un archivo de entrada.
+     * Permite seleccionar archivos de texto o imágenes. Si es imagen o archivo cifrado,
+     * se marca para cifrado/descifrado de imagen; si es texto, se carga en el área de entrada.
+     *
+     * @param event Evento de acción disparado por el botón "Cargar archivo".
+     */
     @FXML
     public void handleCargarArchivo(ActionEvent event) {
         logger.info("Acción: cargar archivo de entrada");
@@ -153,15 +211,22 @@ public class MainController {
         }
     }
 
-
-
-
-
-
     // ============================================================
     // CIFRAR (texto o imagen) - botón "Cifrar"
     // ============================================================
 
+    /**
+     * Maneja la acción del botón "Cifrar".
+     * Según el algoritmo seleccionado (AES o Vigenère) y el tipo de entrada
+     * (texto o imagen), realiza el cifrado correspondiente.
+     *
+     * <ul>
+     *     <li>Vigenère: solo texto, vía API externa ({@code APIClient}).</li>
+     *     <li>AES: texto o imagen, cifrado local.</li>
+     * </ul>
+     *
+     * @param event Evento de acción generado al pulsar el botón "Cifrar".
+     */
     @FXML
     public void handleCifrar(ActionEvent event) {
         try {
@@ -231,11 +296,17 @@ public class MainController {
         }
     }
 
-
-
     // ============================================================
     // DESCIFRAR (texto o imagen) - botón "Descifrar"
     // ============================================================
+
+    /**
+     * Maneja la acción del botón "Descifrar".
+     * Según el algoritmo seleccionado y el tipo de entrada, realiza el descifrado
+     * de texto o imagen, ya sea mediante la API (Vigenère) o lógica local (AES).
+     *
+     * @param event Evento de acción generado al pulsar el botón "Descifrar".
+     */
     @FXML
     public void handleDescifrar(ActionEvent event) {
         try {
@@ -300,7 +371,13 @@ public class MainController {
         }
     }
 
-
+    /**
+     * Descifra una imagen cifrada con AES a partir de una ruta dada
+     * y una clave proporcionada por el usuario.
+     *
+     * @param encryptedPath Ruta del archivo de imagen cifrado (.enc).
+     * @param clave         Clave de cifrado AES introducida por el usuario.
+     */
     private void descifrarImagenDesdeRuta(Path encryptedPath, String clave) {
         try {
             logger.info("Descifrando imagen desde ruta: {}", encryptedPath);
@@ -327,12 +404,18 @@ public class MainController {
         }
     }
 
-
-
-
     // ============================================================
     // LÓGICA AES PARA TEXTO
     // ============================================================
+
+    /**
+     * Deriva una clave AES de 128 bits a partir de una cadena de texto.
+     * Se utiliza SHA-256 y se toman los primeros 16 bytes del hash.
+     *
+     * @param key Cadena de texto introducida como clave.
+     * @return Clave secreta AES derivada.
+     * @throws NoSuchAlgorithmException Si no se encuentra el algoritmo SHA-256.
+     */
     private SecretKey deriveKeyFromString(String key) throws NoSuchAlgorithmException {
         MessageDigest sha = MessageDigest.getInstance("SHA-256");
         byte[] keyBytes = sha.digest(key.getBytes(StandardCharsets.UTF_8));
@@ -340,6 +423,15 @@ public class MainController {
         return new SecretKeySpec(keyBytes, "AES");
     }
 
+    /**
+     * Cifra un texto plano utilizando AES/GCM/NoPadding.
+     * Devuelve el resultado como Base64 incluyendo IV + datos cifrados.
+     *
+     * @param textoPlano Texto original a cifrar.
+     * @param clave      Clave de cifrado proporcionada por el usuario.
+     * @return Cadena Base64 que contiene IV + texto cifrado.
+     * @throws Exception Si se produce algún error criptográfico.
+     */
     private String cifrarTextoAES(String textoPlano, String clave) throws Exception {
         SecretKey secretKey = deriveKeyFromString(clave);
 
@@ -362,6 +454,15 @@ public class MainController {
         return Base64.getEncoder().encodeToString(ivMasCifrado);
     }
 
+    /**
+     * Descifra un texto cifrado con AES/GCM/NoPadding, donde el contenido Base64
+     * incluye IV + datos cifrados.
+     *
+     * @param textoCifradoBase64 Cadena Base64 con IV + texto cifrado.
+     * @param clave              Clave de cifrado AES.
+     * @return Texto plano resultante tras el descifrado.
+     * @throws Exception Si el formato es inválido o la clave no es correcta.
+     */
     private String descifrarTextoAES(String textoCifradoBase64, String clave) throws Exception {
         SecretKey secretKey = deriveKeyFromString(clave);
 
@@ -383,6 +484,12 @@ public class MainController {
         return new String(plano, StandardCharsets.UTF_8);
     }
 
+    /**
+     * Cifra el contenido del área de texto de entrada usando AES
+     * y coloca el resultado cifrado en el área de texto de salida.
+     *
+     * @throws Exception Si ocurre algún problema durante el cifrado.
+     */
     private void cifrarTexto() throws Exception {
         String texto = textoEntradaArea.getText();
         if (texto == null || texto.isBlank()) {
@@ -405,6 +512,12 @@ public class MainController {
         actualizarStatus("Texto cifrado correctamente");
     }
 
+    /**
+     * Descifra el contenido cifrado presente en el área de texto de entrada,
+     * usando AES, y muestra el texto plano en el área de salida.
+     *
+     * @throws Exception Si el texto no es válido o la clave es incorrecta.
+     */
     private void descifrarTextoDesdeTextArea() throws Exception {
         String textoCifrado = textoEntradaArea.getText();
         if (textoCifrado == null || textoCifrado.isBlank()) {
@@ -430,6 +543,14 @@ public class MainController {
     // ============================================================
     // LÓGICA PARA IMÁGENES (usa AESImageService)
     // ============================================================
+
+    /**
+     * Cifra una imagen seleccionada usando {@link AESImageService}.
+     * El resultado se guarda en un archivo con extensión {@code .enc}
+     * en la misma carpeta que la imagen original.
+     *
+     * @throws Exception Si no hay imagen seleccionada o hay errores de cifrado.
+     */
     private void cifrarImagen() throws Exception {
         if (rutaImagenSeleccionada == null) {
             actualizarStatus("Primero selecciona una imagen");
@@ -460,6 +581,13 @@ public class MainController {
 
     }
 
+    /**
+     * Permite al usuario escoger un archivo de imagen cifrada (.enc) mediante
+     * un {@link FileChooser} y, usando {@link AESImageService}, lo descifra
+     * a un archivo PNG en la misma carpeta.
+     *
+     * @throws Exception Si se cancela la selección o falla el descifrado.
+     */
     private void descifrarImagenConFileChooser() throws Exception {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Selecciona imagen cifrada (.enc)");
@@ -503,35 +631,53 @@ public class MainController {
     // MENÚS Y BOTONES EXTRA DEL FXML
     // ============================================================
 
+    /**
+     * Cierra la aplicación cuando se selecciona la opción de menú "Salir".
+     */
     @FXML
     private void handleSalir() {
         Platform.exit();
     }
 
-        @FXML
-        private void handleCambiarEspañol() {
+    /**
+     * Cambia el idioma de la interfaz a español y muestra un aviso informativo.
+     */
+    @FXML
+    private void handleCambiarEspañol() {
         cambiarIdioma(new Locale("es", "ES"));
-            showInfoAlert("Idioma cambiado a Español");
-        }
+        showInfoAlert("Idioma cambiado a Español");
+    }
 
-        @FXML
-        private void handleCambiarIngles() {
-            cambiarIdioma(new Locale("en", "EN"));
-            showInfoAlert("Language changed to English");
-        }
+    /**
+     * Cambia el idioma de la interfaz a inglés y muestra un aviso informativo.
+     */
+    @FXML
+    private void handleCambiarIngles() {
+        cambiarIdioma(new Locale("en", "EN"));
+        showInfoAlert("Language changed to English");
+    }
 
-        @FXML
-        private void handleManual() {
-            // Abre el manual. Ejemplo: mostrar alerta o ventana con instrucciones
-            showInfoAlert("Manual:\nUsa este programa para cifrar o descifrar texto.");
-        }
+    /**
+     * Muestra un mensaje con instrucciones básicas de uso del programa.
+     */
+    @FXML
+    private void handleManual() {
+        // Abre el manual. Ejemplo: mostrar alerta o ventana con instrucciones
+        showInfoAlert("Manual:\nUsa este programa para cifrar o descifrar texto.");
+    }
 
-        @FXML
-        private void handleSobreNosotros() {
-            // Muestra una ventana o diálogo con info sobre el equipo o proyecto
-            showInfoAlert("Sobre Nosotros:\nEste software fue desarrollado por Gaizka y Diego.");
-        }
+    /**
+     * Muestra información sobre el equipo desarrollador del software.
+     */
+    @FXML
+    private void handleSobreNosotros() {
+        // Muestra una ventana o diálogo con info sobre el equipo o proyecto
+        showInfoAlert("Sobre Nosotros:\nEste software fue desarrollado por Gaizka y Diego.");
+    }
 
+    /**
+     * Limpia el área de texto de entrada y desasocia cualquier imagen seleccionada.
+     */
     @FXML
     private void handleLimpiarEntrada() {
         if (textoEntradaArea != null) {
@@ -541,6 +687,10 @@ public class MainController {
         actualizarStatus("Entrada limpiada");
     }
 
+    /**
+     * Guarda el contenido del área de texto de salida en un archivo .txt
+     * seleccionado por el usuario mediante un {@link FileChooser}.
+     */
     @FXML
     private void handleGuardarResultado() {
         String contenido = textoSalidaArea.getText();
@@ -573,6 +723,9 @@ public class MainController {
         }
     }
 
+    /**
+     * Copia el contenido del área de texto de salida al portapapeles del sistema.
+     */
     @FXML
     private void handleCopiar() {
         String contenido = textoSalidaArea.getText();
@@ -591,6 +744,12 @@ public class MainController {
     // ============================================================
     // Métodos auxiliares
     // ============================================================
+
+    /**
+     * Muestra una alerta informativa con el mensaje proporcionado.
+     *
+     * @param message Texto a mostrar en la ventana de información.
+     */
     private void showInfoAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Información");
@@ -599,11 +758,24 @@ public class MainController {
         alert.showAndWait();
     }
 
+    /**
+     * Cambia el idioma de la interfaz, actualizando los textos mediante un
+     * {@link ResourceBundle}.
+     *
+     * @param locale Idioma y región a aplicar en la interfaz.
+     */
     public void cambiarIdioma(Locale locale) {
         currentLocale = locale;
         bundle = ResourceBundle.getBundle("messages", currentLocale);
         actualizarTextos(bundle);
     }
+
+    /**
+     * Actualiza todos los textos de los controles de la interfaz
+     * usando el {@link ResourceBundle} indicado.
+     *
+     * @param bundle Recurso con los textos internacionalizados.
+     */
     // Método para actualizar todos los textos con el ResourceBundle elegido
     private void actualizarTextos(ResourceBundle bundle) {
         archivoMenu.setText(bundle.getString("archivo"));
@@ -630,6 +802,11 @@ public class MainController {
         copiarBtn.setText(bundle.getString("copiar"));
 
     }
+
+    /**
+     * Restablece los campos principales de la interfaz a su estado inicial:
+     * limpia texto de entrada/salida, la clave y la ruta de imagen seleccionada.
+     */
     private void resetCampos() {
         if (textoEntradaArea != null) textoEntradaArea.clear();
         if (textoSalidaArea != null) textoSalidaArea.clear();
@@ -638,6 +815,10 @@ public class MainController {
         actualizarStatus("Listo");
     }
 
+    /**
+     * Abre una nueva ventana con el manual de usuario cargado desde
+     * el recurso {@code manual-usuario.html}. Si no se encuentra, muestra un mensaje básico.
+     */
     @FXML
     private void handleMostrarManual() {
         Stage stage = new Stage();

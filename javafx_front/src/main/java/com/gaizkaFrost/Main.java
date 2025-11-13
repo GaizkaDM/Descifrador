@@ -8,8 +8,32 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * <h2>Clase Main</h2>
+ * Clase principal de la aplicación JavaFX encargada de iniciar la interfaz
+ * gráfica y lanzar en segundo plano el backend en Python necesario para el funcionamiento
+ * del programa.
+ *
+ * <p>Esta clase inicia un proceso externo que ejecuta una API desarrollada en Python,
+ * y posteriormente carga la vista inicial definida en <i>MainView.fxml</i>.</p>
+ *
+ * @author Gaizka
+ * @author Diego
+ * @version 1.0
+ * @since 2025
+ */
 public class Main extends Application
 {
+    /**
+     * <h3>Método start</h3>
+     * Punto de entrada de la aplicación JavaFX.
+     * Inicializa el proceso Python, captura su salida en un hilo independiente y
+     * finalmente carga la ventana principal de la aplicación.
+     *
+     * @param stage Ventana principal de la interfaz gráfica.
+     * @throws Exception Puede lanzar excepciones relacionadas con la carga del FXML
+     *                   o con la inicialización de recursos de JavaFX.
+     */
     @Override
     public void start(Stage stage) throws Exception {
         try {
@@ -17,7 +41,11 @@ public class Main extends Application
             pb.redirectErrorStream(true);
             Process process = pb.start();
 
-            // Leer salida de la API en hilo aparte para no bloquear UI
+            /**
+             * <h4>Hilo de lectura de la API Python</h4>
+             * Este hilo independiente evita bloquear el hilo principal de JavaFX
+             * mientras se recibe la salida del backend.
+             */
             new Thread(() -> {
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
                     String line;
@@ -45,6 +73,13 @@ public class Main extends Application
         stage.show();
     }
 
+    /**
+     * <h3>Método main</h3>
+     * Método principal del programa.
+     * Lanza la aplicación JavaFX mediante el método <code>launch()</code>.
+     *
+     * @param args Argumentos de ejecución recibidos por consola.
+     */
     public static void main( String[] args ) {
         launch();
     }
