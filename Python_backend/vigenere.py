@@ -24,6 +24,10 @@ def letra_a_num(letra):
     Raises:
         ValueError: Si la letra no está en A-Z
     """
+    if letra == ' ':
+        return -1  # Valor especial si quieres manejar espacios aparte
+    if letra not in ABC:
+        raise ValueError(f"Caracter no válido: '{letra}'")
     return ABC.index(letra)
 
 def num_a_letra(num):
@@ -59,58 +63,54 @@ def repetir_clave(texto, clave):
     clave_final = clave_repetida[:longitud_texto]
     return clave_final
 
-def preparar_texto(texto):
-    """
-    Normaliza el texto:
-    - Convierte a mayúsculas
-    - Elimina espacios
-    - Elimina caracteres no alfabéticos
-
-    Args:
-        texto (str): Texto a preparar
-    Returns:
-        str: Texto normalizado
-    """
-    texto = texto.upper()
-    resultado = ""
-    for c in texto:
-        if c in ABC:
-            resultado += c
-    return resultado
 
 def cifrar(texto, clave):
-    """Cifra un texto con la clave dada.
-
+    """Cifra el texto usando el cifrado Vigenère.
     Args:
         texto (str): Texto a cifrar
         clave (str): Clave para el cifrado
-
     Returns:
         str: Texto cifrado
     """
-    texto = preparar_texto(texto)
+    texto = texto.upper()
     clave = repetir_clave(texto, clave)
     resultado = ""
-    for t, k in zip(texto, clave):
-        suma = letra_a_num(t) + letra_a_num(k)
-        resultado += num_a_letra(suma)
+    indice_clave = 0
+    for char in texto:
+        if char == ' ':
+            resultado += ' '  # Mantiene espacios tal cual
+        elif char in ABC:
+            k = clave[indice_clave % len(clave)]
+            suma = letra_a_num(char) + letra_a_num(k)
+            resultado += num_a_letra(suma)
+            indice_clave += 1
+        else:
+            raise ValueError(f"Caracter inválido en texto: '{char}'")
     return resultado
 
-def descifrar(texto, clave):
-    """Descifra un texto cifrado con la clave dada.
 
+def descifrar(texto, clave):
+    """Descifra el texto usando el cifrado Vigenère.
     Args:
-        texto (str): Texto cifrado a descifrar
-        clave (str): Clave usada en el cifrado
+        texto (str): Texto a descifrar
+        clave (str): Clave para el descifrado
     Returns:
         str: Texto descifrado
     """
-    texto = preparar_texto(texto)
+    texto = texto.upper()
     clave = repetir_clave(texto, clave)
     resultado = ""
-    for t, k in zip(texto, clave):
-        resta = letra_a_num(t) - letra_a_num(k)
-        resultado += num_a_letra(resta)
+    indice_clave = 0
+    for char in texto:
+        if char == ' ':
+            resultado += ' '
+        elif char in ABC:
+            k = clave[indice_clave % len(clave)]
+            resta = letra_a_num(char) - letra_a_num(k)
+            resultado += num_a_letra(resta)
+            indice_clave += 1
+        else:
+            raise ValueError(f"Caracter inválido en texto: '{char}'")
     return resultado
 
 # --- Métodos extra para trabajar con ficheros ---
