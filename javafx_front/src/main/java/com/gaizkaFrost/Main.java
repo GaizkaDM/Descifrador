@@ -25,7 +25,7 @@ public class Main extends Application
         stage.setScene(scene);
         stage.setMinWidth(790);
         stage.setMinHeight(500);
-        stage.setTitle("Adding/Deleting Rows in a TableView");
+        stage.setTitle("Descifrador");
         stage.show();
 
         //logger.info("Ventana principal mostrada correctamente");
