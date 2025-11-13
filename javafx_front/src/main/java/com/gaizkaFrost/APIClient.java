@@ -11,7 +11,7 @@ import org.json.JSONObject;
  */
 public class APIClient {
 
-    private static final String API_BASE_URL = "http://172.20.106.20:5000/api/vigenere/";
+    private static final String API_BASE_URL = "http://localhost:5000/api/vigenere/";
     private static final HttpClient client = HttpClient.newHttpClient();
 
     /**
