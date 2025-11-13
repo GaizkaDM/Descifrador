@@ -30,6 +30,7 @@ public class MainController {
     private void initialize() {
         // Valor por defecto del combo si viene vacío
         if (algoritmoCombo != null && (algoritmoCombo.getValue() == null || algoritmoCombo.getValue().isBlank())) {
+            algoritmoCombo.getItems().setAll("Vigenère", "AES");
             algoritmoCombo.setValue("AES");
         }
         actualizarStatus("Listo");
@@ -52,12 +53,8 @@ public class MainController {
                 // resultado = cifrarVigenereLocal(texto, clave);
                 actualizarStatus("Texto cifrado con Vigenère");
             } else {
-                // AES local (Base64)
-                resultado = UseCases.encryptToBase64(
-                        texto.getBytes(StandardCharsets.UTF_8),
-                        clave.toCharArray(),
-                        AAD
-                );
+                // AES local simplificado (fachada)
+                resultado = AESCryptoService.cifrar(texto, clave);
                 actualizarStatus("Texto cifrado con AES");
             }
 
@@ -82,9 +79,8 @@ public class MainController {
                 resultado = APIClient.descifrarVigenere(textoCifrado, clave);
                 actualizarStatus("Texto descifrado con Vigenère");
             } else {
-                // AES local
-                byte[] plain = UseCases.decryptFromBase64(textoCifrado, clave.toCharArray());
-                resultado = new String(plain, StandardCharsets.UTF_8);
+                // AES local simplificado (fachada)
+                resultado = AESCryptoService.descifrar(textoCifrado, clave);
                 actualizarStatus("Texto descifrado con AES");
             }
 
@@ -119,36 +115,62 @@ public class MainController {
         try {
             FileChooser fc = new FileChooser();
             fc.setTitle("Guardar resultado");
-            fc.setInitialFileName("resultado.txt");
             File f = fc.showSaveDialog(getWindow());
             if (f != null) {
                 Files.writeString(f.toPath(), nonNull(textoSalidaArea.getText()), StandardCharsets.UTF_8);
-                actualizarStatus("Resultado guardado: " + f.getName());
+                actualizarStatus("Resultado guardado en: " + f.getName());
             }
         } catch (Exception e) {
-            mostrarError("No se pudo guardar: " + e.getMessage());
+            mostrarError("No se pudo guardar el archivo: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    private void handleCopiar() {
+        String texto = nonNull(textoSalidaArea.getText());
+        if (!texto.isBlank()) {
+            ClipboardContent content = new ClipboardContent();
+            content.putString(texto);
+            Clipboard.getSystemClipboard().setContent(content);
+            actualizarStatus("Resultado copiado al portapapeles");
+        } else {
+            actualizarStatus("Nada que copiar");
+        }
+    }
+
+    @FXML
+    private void handlePegarEntrada() {
+        Clipboard clipboard = Clipboard.getSystemClipboard();
+        if (clipboard.hasString()) {
+            textoEntradaArea.setText(clipboard.getString());
+            actualizarStatus("Texto pegado desde el portapapeles");
+        } else {
+            actualizarStatus("No hay texto en el portapapeles");
         }
     }
 
     @FXML
     private void handleLimpiarEntrada() {
-        textoEntradaArea.clear();
+        if (textoEntradaArea != null) {
+            textoEntradaArea.clear();
+        }
         actualizarStatus("Entrada limpiada");
     }
 
     @FXML
-    private void handleCopiar() {
-        String out = nonNull(textoSalidaArea.getText());
-        ClipboardContent content = new ClipboardContent();
-        content.putString(out);
-        Clipboard.getSystemClipboard().setContent(content);
-        actualizarStatus("Resultado copiado al portapapeles");
+    private void handleLimpiarSalida() {
+        if (textoSalidaArea != null) {
+            textoSalidaArea.clear();
+        }
+        actualizarStatus("Salida limpiada");
     }
 
-    // === Utilidades de UI ===
+    // === Utils internos ===
 
     private void actualizarStatus(String msg) {
-        if (statusLabel != null) statusLabel.setText(Objects.requireNonNullElse(msg, ""));
+        if (statusLabel != null) {
+            statusLabel.setText(Objects.requireNonNullElse(msg, ""));
+        }
     }
 
     private void mostrarError(String msg) {
@@ -157,19 +179,7 @@ public class MainController {
     }
 
     private Window getWindow() {
-        // Intenta obtener una ventana para los diálogos de FileChooser si hace falta
-        if (statusLabel != null && statusLabel.getScene() != null) {
-            return statusLabel.getScene().getWindow();
-        }
-        return null;
-    }
-
-    private static String nonNull(String s) {
-        return s == null ? "" : s;
-    }
-
-    private static String safeGet(ComboBox<String> cb) {
-        return (cb != null && cb.getValue() != null) ? cb.getValue() : "";
+        return statusLabel != null ? statusLabel.getScene().getWindow() : null;
     }
 
 
