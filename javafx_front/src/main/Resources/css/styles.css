@@ -1,0 +1,121 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom, #1b1b1b, #3c2f2f);
+    -fx-font-family: "Georgia", "Times New Roman", serif;
+    -fx-text-fill: #d4af37;
+}
+
+.hogwarts-menu-bar {
+    -fx-background-color: #3b2f2f;
+    -fx-font-size: 14px;
+}
+
+.hogwarts-menu {
+    -fx-text-fill: #d4af37;
+    -fx-font-weight: bold;
+}
+
+.hogwarts-header {
+    -fx-background-color: #4b3b3b;
+    -fx-padding: 15 20 15 20;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #d4af37;
+    -fx-border-width: 2;
+}
+
+.hogwarts-label {
+    -fx-text-fill: #d4af37;
+    -fx-font-size: 20px;
+}
+
+.hogwarts-label-bold {
+    -fx-text-fill: #d4af37;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.hogwarts-text-field, .hogwarts-combo-box, .hogwarts-text-area {
+    -fx-background-color: #3e2d2d;
+    -fx-text-fill: #f6eec7;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-border-color: #d4af37;
+    -fx-border-width: 1.5;
+}
+.hogwarts-text-area{
+    -fx-text-fill: #a0a0a0;
+}
+.hogwarts-text-area.output-area {
+    -fx-background-color: #2c1f1f;
+    -fx-text-fill: #a0a0a0;
+}
+
+.hogwarts-buttons .button {
+    -fx-background-color: #5d462f;
+    -fx-text-fill: #d4af37;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 15 25 15 25;
+}
+
+.hogwarts-cifrar-btn {
+    -fx-background-color: #6f4e37;
+}
+
+.hogwarts-descifrar-btn {
+    -fx-background-color: #8b5c2c;
+}
+
+.hogwarts-secondary-btn {
+    -fx-background-color: #5a4b3e;
+    -fx-text-fill: #d4af37;
+}
+
+.hogwarts-tertiary-btn {
+    -fx-background-color: #3b2e2e;
+    -fx-text-fill: #bfa568;
+}
+
+.hogwarts-success-btn {
+    -fx-background-color: #4e642e;
+    -fx-text-fill: #b5d48a;
+    -fx-font-weight: bold;
+}
+
+.hogwarts-info-btn {
+    -fx-background-color: #3d5566;
+    -fx-text-fill: #a9c4d6;
+}
+
+.hogwarts-footer {
+    -fx-background-color: #3e2f2f;
+    -fx-padding: 10 20;
+}
+
+.hogwarts-status-label {
+    -fx-text-fill: #c1a25f;
+    -fx-font-size: 12px;
+}
+
+.hogwarts-arrow {
+    -fx-font-size: 48px;
+    -fx-text-fill: #d4af37;
+}
+.hogwarts-text-field {
+    -fx-padding: 0 0 0 70; /* top right bottom left */
+}
+
+.hogwarts-combo-box {
+    -fx-padding: 0 0 0 110;
+
+}
+.hogwarts-combo-box, .hogwarts-combo-box .text {
+    -fx-text-fill: #f6eec7; /* color claro dorado */
+}
+.hogwarts-combo-box .list-cell {
+    -fx-text-fill: #f6eec7;
+    -fx-background-color: #3e2d2d;
+}
+
+

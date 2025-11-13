@@ -1,6 +1,7 @@
 package com.gaizkaFrost;
 
 import com.gaizkaFrost.AES.CryptoException;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
@@ -253,6 +254,49 @@ public class MainController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+
+        @FXML
+        private void handleSalir() {
+            Platform.exit();  // Cierra la aplicación
+        }
+
+        @FXML
+        private void handleCambiarEspañol() {
+            // Aquí deberías implementar el cambio de idioma a Español
+            // Por ahora, avisamos al usuario
+            showInfoAlert("Idioma cambiado a Español");
+        }
+
+        @FXML
+        private void handleCambiarIngles() {
+            // Aquí deberías implementar el cambio de idioma a Inglés
+            showInfoAlert("Language changed to English");
+        }
+
+        @FXML
+        private void handleManual() {
+            // Abre el manual. Ejemplo: mostrar alerta o ventana con instrucciones
+            showInfoAlert("Manual:\nUsa este programa para cifrar o descifrar texto.");
+        }
+
+        @FXML
+        private void handleSobreNosotros() {
+            // Muestra una ventana o diálogo con info sobre el equipo o proyecto
+            showInfoAlert("Sobre Nosotros:\nEste software fue desarrollado por Gaizka y Diego.");
+        }
+
+        // Método auxiliar para mostrar un alert informativo
+        private void showInfoAlert(String message) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Información");
+            alert.setHeaderText(null);
+            alert.setContentText(message);
+            alert.showAndWait();
+        }
+
+        // Aquí irían el resto de tus métodos como handleCifrar(), handleDescifrar(), etc.
 }
+
+
 
 

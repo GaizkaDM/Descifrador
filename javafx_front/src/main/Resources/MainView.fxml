@@ -3,98 +3,102 @@
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gaizkaFrost.MainController">
+<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gaizkaFrost.MainController" stylesheets="@css/styles.css">
 
-    <!-- Header con GridPane -->
     <top>
-        <GridPane hgap="20" style="-fx-background-color: #2c3e50; -fx-padding: 10 20 8 20;" vgap="8">
-            <columnConstraints>
-                <!-- Columna izquierda elástica -->
-                <ColumnConstraints hgrow="ALWAYS" />
-                <!-- Columna derecha fija para los botones -->
-                <ColumnConstraints prefWidth="240" />
-            </columnConstraints>
+        <VBox>
+            <MenuBar>
+                <!-- Menú 1: Salir -->
+                <Menu text="Archivo" styleClass="menu-style">
+                    <MenuItem text="Salir" onAction="#handleSalir"/>
+                </Menu>
 
-            <!-- Fila 1: Clave -->
-            <Label style="-fx-text-fill: white; -fx-font-size: 21px;" text="Clave:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <TextField fx:id="claveField" prefHeight="40" prefWidth="95.0" promptText="Introduce la clave" style="-fx-font-size: 14px;" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0">
-                <GridPane.margin>
-                    <Insets left="70.0" />
-                </GridPane.margin>
-            </TextField>
+                <!-- Menú 2: Cambiar idioma -->
+                <Menu text="Idioma" styleClass="menu-style">
+                    <MenuItem text="Español" onAction="#handleCambiarEspañol"/>
+                    <MenuItem text="Inglés" onAction="#handleCambiarIngles"/>
+                </Menu>
 
-            <!-- Fila 2: Algoritmo -->
-            <Label style="-fx-text-fill: white; -fx-font-size: 21px;" text="Algoritmo:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <ComboBox fx:id="algoritmoCombo" prefHeight="41.0" prefWidth="260" style="-fx-font-size: 13px;" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Vigenère" />
-                        <String fx:value="AES" />
-                    </FXCollections>
-                </items>
-                <GridPane.margin>
-                    <Insets left="110.0" />
-                </GridPane.margin>
-            </ComboBox>
+                <!-- Menú 3: Información -->
+                <Menu text="Información" styleClass="menu-style">
+                    <MenuItem text="Manual" onAction="#handleManual"/>
+                    <MenuItem text="Sobre Nosotros" onAction="#handleSobreNosotros"/>
+                </Menu>
+            </MenuBar>
 
-            <!-- Columna derecha: botones apilados ocupando 2 filas -->
-            <VBox alignment="TOP_RIGHT" fillWidth="true" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.rowSpan="2">
-                <Button fx:id="cifrarBtn" maxWidth="Infinity" onAction="#handleCifrar" prefHeight="64" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 21px; -fx-padding: 16 44;" text="Cifrar" />
-                <Button fx:id="descifrarBtn" maxWidth="Infinity" onAction="#handleDescifrar" prefHeight="64" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 21px; -fx-padding: 16 44;" text="Descifrar" />
-            </VBox>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
-        </GridPane>
+            <GridPane hgap="20" styleClass="hogwarts-header" vgap="8">
+                <padding>
+                    <Insets top="10" right="20" bottom="8" left="20"/>
+                </padding>
+                <columnConstraints>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                    <ColumnConstraints prefWidth="240"/>
+                </columnConstraints>
+
+                <Label text="Clave:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="hogwarts-label"/>
+                <TextField fx:id="claveField" promptText="Introduce la clave" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                           styleClass="hogwarts-text-field" GridPane.hgrow="ALWAYS" prefHeight="40" prefWidth="95"/>
+
+                <Label text="Algoritmo:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="hogwarts-label"/>
+                <ComboBox fx:id="algoritmoCombo" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="hogwarts-combo-box"
+                          prefHeight="41" prefWidth="260">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Vigenère"/>
+                            <String fx:value="AES"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <VBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.rowSpan="2" alignment="TOP_RIGHT"
+                      styleClass="hogwarts-buttons">
+                    <Button fx:id="cifrarBtn" text="Cifrar" maxWidth="Infinity" prefHeight="64" onAction="#handleCifrar"
+                            styleClass="hogwarts-cifrar-btn"/>
+                    <Button fx:id="descifrarBtn" text="Descifrar" maxWidth="Infinity" prefHeight="64" onAction="#handleDescifrar"
+                            styleClass="hogwarts-descifrar-btn"/>
+                </VBox>
+            </GridPane>
+        </VBox>
     </top>
 
-    <!-- Center - Áreas de texto -->
     <center>
-        <HBox spacing="20" style="-fx-padding: 20;">
-            <!-- Panel izquierdo - Texto de entrada -->
+        <HBox spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
             <VBox spacing="10" HBox.hgrow="ALWAYS">
-                <Label style="-fx-font-size: 21; -fx-font-weight: bold;" text="Texto de entrada:" />
-                <TextArea fx:id="textoEntradaArea" promptText="Escribe el texto aquí..." style="-fx-font-size: 13px; -fx-border-color: #bdc3c7; -fx-border-width: 2; -fx-border-radius: 5;" wrapText="true" VBox.vgrow="ALWAYS" />
+                <Label text="Texto de entrada:" styleClass="hogwarts-label-bold"/>
+                <TextArea fx:id="textoEntradaArea" promptText="Escribe el texto aquí..." wrapText="true" VBox.vgrow="ALWAYS"
+                          styleClass="hogwarts-text-area"/>
                 <HBox alignment="CENTER_LEFT" spacing="10">
-                    <Button onAction="#handleCargarArchivo" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 8 20;" text="Cargar archivo" />
-                    <Button onAction="#handleLimpiarEntrada" style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 8 20;" text="Limpiar" />
+                    <Button text="Cargar archivo" onAction="#handleCargarArchivo" styleClass="hogwarts-secondary-btn"/>
+                    <Button text="Limpiar" onAction="#handleLimpiarEntrada" styleClass="hogwarts-tertiary-btn"/>
                 </HBox>
             </VBox>
 
-            <!-- Flecha central -->
             <VBox alignment="CENTER" prefWidth="80" spacing="10">
-                <Label style="-fx-font-size: 48px; -fx-text-fill: #34495e;" text="➜" />
+                <Label text="➜" styleClass="hogwarts-arrow"/>
             </VBox>
 
-            <!-- Panel derecho - Texto de salida -->
             <VBox spacing="10" HBox.hgrow="ALWAYS">
-                <Label style="-fx-font-size: 21; -fx-font-weight: bold;" text="Texto de salida:" />
-                <TextArea fx:id="textoSalidaArea" editable="false" promptText="El resultado aparecerá aquí..." style="-fx-font-size: 13px; -fx-border-color: #bdc3c7; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-color: #ecf0f1;" wrapText="true" VBox.vgrow="ALWAYS" />
+                <Label text="Texto de salida:" styleClass="hogwarts-label-bold"/>
+                <TextArea fx:id="textoSalidaArea" editable="false" promptText="El resultado aparecerá aquí..."
+                          wrapText="true" VBox.vgrow="ALWAYS" styleClass="hogwarts-text-area output-area"/>
                 <HBox alignment="CENTER_LEFT" spacing="10">
-                    <Button onAction="#handleGuardarResultado" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 8 20;" text="Guardar resultado" />
-                    <Button onAction="#handleCopiar" style="-fx-background-color: #16a085; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 8 20;" text="Copiar" />
+                    <Button text="Guardar resultado" onAction="#handleGuardarResultado" styleClass="hogwarts-success-btn"/>
+                    <Button text="Copiar" onAction="#handleCopiar" styleClass="hogwarts-info-btn"/>
                 </HBox>
             </VBox>
         </HBox>
     </center>
 
-    <!-- Footer - Barra de estado -->
     <bottom>
-        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #34495e; -fx-padding: 10 20;">
-            <Label fx:id="statusLabel" style="-fx-text-fill: white; -fx-font-size: 12px;" text="Listo" />
+        <HBox alignment="CENTER_LEFT" styleClass="hogwarts-footer">
+            <Label fx:id="statusLabel" text="Listo" styleClass="hogwarts-status-label"/>
         </HBox>
     </bottom>
 
