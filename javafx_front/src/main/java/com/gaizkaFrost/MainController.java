@@ -108,7 +108,6 @@ public class MainController {
     public void handleCargarArchivo(ActionEvent event) {
         logger.info("Acción: cargar archivo de entrada");
 
-        // Obtenemos la ventana desde el botón que disparó el evento
         Window window = ((Button) event.getSource()).getScene().getWindow();
 
         FileChooser fileChooser = new FileChooser();
@@ -127,14 +126,12 @@ public class MainController {
             boolean isEncryptedImage = fileName.endsWith(".enc");
 
             if (isImage || isEncryptedImage) {
-                // MODO IMAGEN O IMAGEN CIFRADA: no leemos como texto
                 rutaImagenSeleccionada = selectedFile.toPath();
-                textoEntradaArea.clear(); // Limpiamos área de texto
+                textoEntradaArea.clear();
+                textoEntradaArea.setText("🖼️ Imagen cargada: " + selectedFile.getName());
                 logger.info("Archivo de imagen o cifrado seleccionado: {}", rutaImagenSeleccionada);
                 actualizarStatus("Archivo de imagen cargado correctamente");
-                showInfoAlert("Archivo de imagen cargado correctamente");
             } else {
-                // MODO TEXTO
                 rutaImagenSeleccionada = null;
                 try {
                     String contenido = Files.readString(selectedFile.toPath());
@@ -154,6 +151,7 @@ public class MainController {
 
 
 
+
     // ============================================================
     // CIFRAR (texto o imagen) - botón "Cifrar"
     // ============================================================
@@ -162,21 +160,12 @@ public class MainController {
     public void handleCifrar(ActionEvent event) {
         try {
             String algoritmo = algoritmoCombo != null ? algoritmoCombo.getValue() : null;
+            String clave = claveField != null ? claveField.getText() : "";
+
             if (algoritmo == null) {
                 actualizarStatus("Selecciona un algoritmo");
                 showInfoAlert("Selecciona un algoritmo (AES / Vigenère).");
                 return;
-            }
-
-            String texto = textoEntradaArea != null ? textoEntradaArea.getText() : "";
-            String clave = claveField != null ? claveField.getText() : "";
-
-            if (texto == null || texto.isBlank()) {
-                if (rutaImagenSeleccionada == null) {
-                    actualizarStatus("No hay texto ni imagen para cifrar");
-                    showInfoAlert("Escribe un texto o carga una imagen antes de cifrar.");
-                    return;
-                }
             }
 
             if (clave == null || clave.isBlank()) {
@@ -186,6 +175,17 @@ public class MainController {
             }
 
             if ("Vigenère".equalsIgnoreCase(algoritmo)) {
+                if (rutaImagenSeleccionada != null) {
+                    actualizarStatus("Vigenère no soporta cifrar imágenes");
+                    showInfoAlert("Por ahora la encriptación de imágenes solo está soportada con AES.");
+                    return;
+                }
+                String texto = textoEntradaArea != null ? textoEntradaArea.getText() : "";
+                if (texto == null || texto.isBlank()) {
+                    actualizarStatus("No hay texto para cifrar");
+                    showInfoAlert("Escribe un texto antes de cifrar.");
+                    return;
+                }
                 actualizarStatus("Cifrando texto con Vigenère (API)...");
                 Task<String> task = new Task<>() {
                     @Override
@@ -203,16 +203,16 @@ public class MainController {
                 });
                 new Thread(task).start();
             } else if ("AES".equalsIgnoreCase(algoritmo)) {
-                if (texto != null && !texto.isBlank()) {
-                    // Texto para cifrar con AES
-                    rutaImagenSeleccionada = null;
-                    cifrarTexto();
-                } else if (rutaImagenSeleccionada != null) {
-                    // Imagen para cifrar con AES
+                if (rutaImagenSeleccionada != null) {
                     cifrarImagen();
                 } else {
-                    actualizarStatus("No hay texto ni imagen para cifrar");
-                    showInfoAlert("Escribe un texto o carga una imagen antes de cifrar.");
+                    String texto = textoEntradaArea != null ? textoEntradaArea.getText() : "";
+                    if (texto == null || texto.isBlank()) {
+                        actualizarStatus("No hay texto para cifrar");
+                        showInfoAlert("Escribe un texto antes de cifrar.");
+                        return;
+                    }
+                    cifrarTexto();
                 }
             } else {
                 actualizarStatus("Algoritmo no soportado: " + algoritmo);
@@ -226,6 +226,7 @@ public class MainController {
     }
 
 
+
     // ============================================================
     // DESCIFRAR (texto o imagen) - botón "Descifrar"
     // ============================================================
@@ -233,14 +234,13 @@ public class MainController {
     public void handleDescifrar(ActionEvent event) {
         try {
             String algoritmo = algoritmoCombo != null ? algoritmoCombo.getValue() : null;
+            String clave = claveField != null ? claveField.getText() : "";
+
             if (algoritmo == null) {
                 actualizarStatus("Selecciona un algoritmo");
                 showInfoAlert("Selecciona un algoritmo (AES / Vigenère).");
                 return;
             }
-
-            String texto = textoEntradaArea != null ? textoEntradaArea.getText() : "";
-            String clave = claveField != null ? claveField.getText() : "";
 
             if (clave == null || clave.isBlank()) {
                 actualizarStatus("Introduce una clave para descifrar");
@@ -249,9 +249,10 @@ public class MainController {
             }
 
             if ("Vigenère".equalsIgnoreCase(algoritmo)) {
-                if (texto == null || texto.isBlank()) {
+                String texto = textoEntradaArea != null ? textoEntradaArea.getText() : "";
+                if (texto == null || texto.isBlank() || texto.startsWith("🖼️ Imagen cargada")) {
                     actualizarStatus("No hay texto para descifrar");
-                    showInfoAlert("Escribe el texto cifrado con Vigenère o carga un archivo válido.");
+                    showInfoAlert("Escribe un texto válido para descifrar con Vigenère.");
                     return;
                 }
                 actualizarStatus("Descifrando texto con Vigenère (API)...");
@@ -271,15 +272,16 @@ public class MainController {
                 });
                 new Thread(task).start();
             } else if ("AES".equalsIgnoreCase(algoritmo)) {
-                if (texto != null && !texto.isBlank()) {
-                    // Descifrar texto con AES
-                    descifrarTextoDesdeTextArea();
-                } else if (rutaImagenSeleccionada != null) {
-                    // Descifrar imagen usando la ruta cargada
+                if (rutaImagenSeleccionada != null) {
                     descifrarImagenDesdeRuta(rutaImagenSeleccionada, clave);
                 } else {
-                    // Si no hay texto ni imagen cargada, abrir selector de archivos
-                    descifrarImagenConFileChooser();
+                    String texto = textoEntradaArea != null ? textoEntradaArea.getText() : "";
+                    if (texto == null || texto.isBlank() || texto.startsWith("🖼️ Imagen cargada")) {
+                        actualizarStatus("No hay texto para descifrar");
+                        showInfoAlert("Escribe un texto para descifrar, o carga una imagen.");
+                        return;
+                    }
+                    descifrarTextoDesdeTextArea();
                 }
             } else {
                 actualizarStatus("Algoritmo no soportado: " + algoritmo);
@@ -291,6 +293,7 @@ public class MainController {
             showInfoAlert("Se ha producido un error al descifrar. Revisa la clave y el contenido.");
         }
     }
+
 
     private void descifrarImagenDesdeRuta(Path encryptedPath, String clave) {
         try {
@@ -310,6 +313,7 @@ public class MainController {
             logger.info("Imagen descifrada en: {}", outputPath);
             actualizarStatus("Imagen descifrada en: " + outputPath);
             showInfoAlert("Imagen descifrada en: " + outputPath);
+            resetCampos();
         } catch (Exception e) {
             logger.error("Error al descifrar la imagen desde ruta", e);
             actualizarStatus("Error al descifrar la imagen");
@@ -446,6 +450,8 @@ public class MainController {
         logger.info("Imagen cifrada en: {}", outputPath);
         actualizarStatus("Imagen cifrada en: " + outputPath);
         showInfoAlert("Imagen cifrada en: " + outputPath);
+        resetCampos();
+
     }
 
     private void descifrarImagenConFileChooser() throws Exception {
@@ -617,6 +623,13 @@ public class MainController {
         guardarBtn.setText(bundle.getString("guardar_resultado"));
         copiarBtn.setText(bundle.getString("copiar"));
 
+    }
+    private void resetCampos() {
+        if (textoEntradaArea != null) textoEntradaArea.clear();
+        if (textoSalidaArea != null) textoSalidaArea.clear();
+        if (claveField != null) claveField.clear();
+        rutaImagenSeleccionada = null;
+        actualizarStatus("Listo");
     }
 
 
