@@ -64,114 +64,113 @@ def health():
 @app.route('/api/vigenere/cifrar', methods=['POST'])
 def cifrar():
     """
-    Endpoint para cifrar texto
+    Endpoint para cifrar texto con cifrado Vigenère.
 
-    Body JSON esperado:
-    {
-        "texto": "Texto a cifrar",
-        "clave": "Clave de cifrado"
-    }
+    ARGS:
+        Recibe un JSON con 'texto' y 'clave', valida entrada y devuelve el texto cifrado.
+    Returns:
+        En caso de error devuelve un mensaje descriptivo con código HTTP adecuado.
     """
     try:
         data = request.get_json()
 
         if not data:
-            return jsonify({'error': 'No se proporcionaron datos JSON'}), 400
+            mensaje = 'No se proporcionaron datos JSON'
+            logger.error(mensaje)
+            return jsonify({'error': mensaje}), 400
 
         texto = data.get('texto')
         clave = data.get('clave')
 
         if not texto or not clave:
-            return jsonify({'error': 'Se requieren los campos "texto" y "clave"'}), 400
+            mensaje = 'Se requieren los campos "texto" y "clave"'
+            logger.error(mensaje)
+            return jsonify({'error': mensaje}), 400
 
-        validar_texto_sin_emoticonos(texto)
-        validar_texto_sin_emoticonos(clave)
+        try:
+            validar_texto_sin_emoticonos(texto)
+            validar_texto_sin_emoticonos(clave)
+        except ValueError as ve:
+            logger.error("Error de validación: %s", str(ve))
+            return jsonify({'error': str(ve)}), 400
 
         if not clave.strip():
-            return jsonify({'error': 'La clave no puede estar vacía'}), 400
+            mensaje = 'La clave no puede estar vacía'
+            logger.error(mensaje)
+            return jsonify({'error': mensaje}), 400
+
         if len(clave.strip()) < 3:
-            return jsonify({'error': 'La clave debe tener al menos 3 caracteres'}), 400
-        # Cifrar usando tu función existente
+            mensaje = 'La clave debe tener al menos 3 caracteres'
+            logger.error(mensaje)
+            return jsonify({'error': mensaje}), 400
+
         texto_cifrado = cifrar_vigenere(texto, clave)
-
         logger.info("Texto cifrado exitosamente (longitud: %d)", len(texto))
-
         return jsonify({
             'texto_cifrado': texto_cifrado,
             'longitud_original': len(texto),
             'longitud_cifrado': len(texto_cifrado)
         }), 200
 
-    except ValueError as ve:
-        logger.error("Error de validación: %s", str(ve))
-        return jsonify({'error': str(ve)}), 400
-
-    except KeyError as ke:
-        logger.error("Error de clave: %s", str(ke))
-        return jsonify({'error': f'Error de clave: {str(ke)}'}), 400
-    except TypeError as te:
-        logger.error("Error de tipo: %s", str(te))
-        return jsonify({'error': f'Error de tipo: {str(te)}'}), 400
     except Exception as e:
-        logger.error("Error inesperado en descifrar: %s", str(e))
+        logger.error("Error inesperado en cifrar: %s", str(e), exc_info=True)
         return jsonify({'error': 'Error interno del servidor'}), 500
+
 
 @app.route('/api/vigenere/descifrar', methods=['POST'])
 def descifrar():
     """
-    Endpoint para descifrar texto
+    Endpoint para descifrar texto con cifrado Vigenère.
 
-    Body JSON esperado:
-    {
-        "texto": "Texto cifrado",
-        "clave": "Clave de descifrado"
-    }
+    ARGS:
+        Recibe un JSON con 'texto' y 'clave', valida entrada y devuelve el texto descifrado.
+
+    Returns:
+        En caso de error devuelve un mensaje descriptivo con código HTTP adecuado.
     """
     try:
-
         data = request.get_json()
 
         if not data:
-            return jsonify({'error': 'No se proporcionaron datos JSON'}), 400
+            mensaje = 'No se proporcionaron datos JSON'
+            logger.error(mensaje)
+            return jsonify({'error': mensaje}), 400
 
         texto_cifrado = data.get('texto')
         clave = data.get('clave')
 
-        validar_texto_sin_emoticonos(texto_cifrado)
-        validar_texto_sin_emoticonos(clave)
         if not texto_cifrado or not clave:
-            return jsonify({'error': 'Se requieren los campos "texto" y "clave"'}), 400
+            mensaje = 'Se requieren los campos "texto" y "clave"'
+            logger.error(mensaje)
+            return jsonify({'error': mensaje}), 400
 
-        validar_texto_sin_emoticonos(texto_cifrado)
-        validar_texto_sin_emoticonos(clave)
+        try:
+            validar_texto_sin_emoticonos(texto_cifrado)
+            validar_texto_sin_emoticonos(clave)
+        except ValueError as ve:
+            logger.error("Error de validación: %s", str(ve))
+            return jsonify({'error': str(ve)}), 400
 
         if not clave.strip():
-            return jsonify({'error': 'La clave no puede estar vacía'}), 400
+            mensaje = 'La clave no puede estar vacía'
+            logger.error(mensaje)
+            return jsonify({'error': mensaje}), 400
 
         if len(clave.strip()) < 3:
-            return jsonify({'error': 'La clave debe tener al menos 3 caracteres'}), 400
-        # Descifrar usando tu función existente
+            mensaje = 'La clave debe tener al menos 3 caracteres'
+            logger.error(mensaje)
+            return jsonify({'error': mensaje}), 400
+
         texto_descifrado = descifrar_vigenere(texto_cifrado, clave)
-
         logger.info("Texto descifrado exitosamente (longitud: %d)", len(texto_cifrado))
-
         return jsonify({
             'texto_descifrado': texto_descifrado,
             'longitud_cifrado': len(texto_cifrado),
             'longitud_descifrado': len(texto_descifrado)
         }), 200
 
-    except ValueError as ve:
-        logger.error("Error de validación: %s", str(ve))
-        return jsonify({'error': str(ve)}), 400
-    except KeyError as ke:
-        logger.error("Error de clave: %s", str(ke))
-        return jsonify({'error': f'Error de clave: {str(ke)}'}), 400
-    except TypeError as te:
-        logger.error("Error de tipo: %s", str(te))
-        return jsonify({'error': f'Error de tipo: {str(te)}'}), 400
     except Exception as e:
-        logger.error("Error inesperado en descifrar: %s", str(e))
+        logger.error("Error inesperado en descifrar: %s", str(e), exc_info=True)
         return jsonify({'error': 'Error interno del servidor'}), 500
 
 
