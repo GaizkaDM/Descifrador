@@ -152,10 +152,8 @@ public class MainController {
     }
 
     private void mostrarError(String msg) {
-        actualizarStatus(msg);
-        // Además puedes usar un Alert si quieres:
-        // Alert a = new Alert(Alert.AlertType.ERROR, msg, ButtonType.OK);
-        // a.showAndWait();
+         Alert a = new Alert(Alert.AlertType.ERROR, msg, ButtonType.OK);
+        a.showAndWait();
     }
 
     private Window getWindow() {
@@ -174,43 +172,13 @@ public class MainController {
         return (cb != null && cb.getValue() != null) ? cb.getValue() : "";
     }
 
-    // === Vigenère local sencillo (por si no tienes aún tu APIClient) ===
 
-    private static String cifrarVigenereLocal(String texto, String clave) {
-        if (clave == null || clave.isEmpty()) return texto;
-        StringBuilder sb = new StringBuilder(texto.length());
-        int k = 0;
-        for (int i = 0; i < texto.length(); i++) {
-            char ch = texto.charAt(i);
-            char key = clave.charAt(k % clave.length());
-            sb.append(shiftVigenere(ch, key, true));
-            k++;
-        }
-        return sb.toString();
-    }
-
-    private static String descifrarVigenereLocal(String texto, String clave) {
-        if (clave == null || clave.isEmpty()) return texto;
-        StringBuilder sb = new StringBuilder(texto.length());
-        int k = 0;
-        for (int i = 0; i < texto.length(); i++) {
-            char ch = texto.charAt(i);
-            char key = clave.charAt(k % clave.length());
-            sb.append(shiftVigenere(ch, key, false));
-            k++;
-        }
-        return sb.toString();
-    }
-
-    private static char shiftVigenere(char ch, char key, boolean encrypt) {
-        // Versión básica: rota en ASCII visible (32..126)
-        int base = 32, span = 95; // 126-32+1
-        int c = ch, k = key;
-        int shift = (k - base) % span;
-        if (shift < 0) shift += span;
-        if (!encrypt) shift = span - shift;
-        if (c < base || c > 126) return ch; // deja fuera de rango tal cual
-        return (char) (base + ((c - base + shift) % span));
+    private void mostrarErrorAlert(String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Ha ocurrido un error");
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }
 

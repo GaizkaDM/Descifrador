@@ -4,13 +4,27 @@ Servidor Flask que expone endpoints para cifrar y descifrar texto
 Integrado con el módulo vigenere.py existente
 """
 import logging
+import re
+from logging.handlers import RotatingFileHandler
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from vigenere import cifrar_vigenere, descifrar_vigenere
 
-# Configurar logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+
+# Configurar logger general
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+# Crear un manejador que guarde en un archivo (con rotación para evitar archivos enormes)
+handler = RotatingFileHandler('api_cifrado_vigenere.log', maxBytes=1024*1024*10, backupCount=5)
+handler.setLevel(logging.INFO)
+
+# Formato legible para los logs
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+
+# Añadir el handler al logger
+logger.addHandler(handler)
 
 # Crear aplicación Flask
 app = Flask(__name__)
@@ -70,9 +84,13 @@ def cifrar():
         if not texto or not clave:
             return jsonify({'error': 'Se requieren los campos "texto" y "clave"'}), 400
 
+        validar_texto_sin_emoticonos(texto)
+        validar_texto_sin_emoticonos(clave)
+
         if not clave.strip():
             return jsonify({'error': 'La clave no puede estar vacía'}), 400
-
+        if len(clave.strip()) < 3:
+            return jsonify({'error': 'La clave debe tener al menos 3 caracteres'}), 400
         # Cifrar usando tu función existente
         texto_cifrado = cifrar_vigenere(texto, clave)
 
@@ -94,6 +112,9 @@ def cifrar():
     except TypeError as te:
         logger.error("Error de tipo: %s", str(te))
         return jsonify({'error': f'Error de tipo: {str(te)}'}), 400
+    except Exception as e:
+        logger.error("Error inesperado en descifrar: %s", str(e))
+        return jsonify({'error': 'Error interno del servidor'}), 500
 
 @app.route('/api/vigenere/descifrar', methods=['POST'])
 def descifrar():
@@ -107,6 +128,7 @@ def descifrar():
     }
     """
     try:
+
         data = request.get_json()
 
         if not data:
@@ -115,12 +137,19 @@ def descifrar():
         texto_cifrado = data.get('texto')
         clave = data.get('clave')
 
+        validar_texto_sin_emoticonos(texto_cifrado)
+        validar_texto_sin_emoticonos(clave)
         if not texto_cifrado or not clave:
             return jsonify({'error': 'Se requieren los campos "texto" y "clave"'}), 400
+
+        validar_texto_sin_emoticonos(texto_cifrado)
+        validar_texto_sin_emoticonos(clave)
 
         if not clave.strip():
             return jsonify({'error': 'La clave no puede estar vacía'}), 400
 
+        if len(clave.strip()) < 3:
+            return jsonify({'error': 'La clave debe tener al menos 3 caracteres'}), 400
         # Descifrar usando tu función existente
         texto_descifrado = descifrar_vigenere(texto_cifrado, clave)
 
@@ -141,29 +170,65 @@ def descifrar():
     except TypeError as te:
         logger.error("Error de tipo: %s", str(te))
         return jsonify({'error': f'Error de tipo: {str(te)}'}), 400
-    # Puedes agregar aquí excepciones específicas si esperas otras posibles fallas
-    # Por ejemplo, para errores inesperados de importación o de lógica:
-    # except ImportError as ie:
-    #     logger.error(f"Error de importación: {str(ie)}")
-    #     return jsonify({'error': f'Error de importación: {str(ie)}'}), 500
-    # Si no hay excepciones específicas adicionales, puedes eliminar el bloque general.
+    except Exception as e:
+        logger.error("Error inesperado en descifrar: %s", str(e))
+        return jsonify({'error': 'Error interno del servidor'}), 500
+
 
 
 @app.errorhandler(404)
 def not_found(_error):
+    """
+    Controlador de error para cuando no se encuentra el endpoint solicitado.
+
+    Args:
+        _error (HTTPException): Objeto de error que contiene información sobre
+                               el error HTTP 404 (No encontrado).
+
+    Returns:
+        Response: Respuesta JSON con un mensaje de error y código HTTP 404.
+    """
     return jsonify({'error': 'Endpoint no encontrado'}), 404
 
 
 @app.errorhandler(405)
-def method_not_allowed(_):
+def method_not_allowed(_error):
+    """
+    Controlador de error para cuando se usa un método HTTP no permitido
+    en un endpoint.
+
+    Args:
+        _error (HTTPException): Objeto de error que contiene información sobre
+                               el error HTTP 405 (Método no permitido).
+
+    Returns:
+        Response: Respuesta JSON con un mensaje de error y código HTTP 405.
+    """
     return jsonify({'error': 'Método HTTP no permitido'}), 405
+
+
+def validar_texto_sin_emoticonos(texto):
+    """Metodo que valida el tipo de caracter quue se inserta tanto en la clave como en el cuerpo
+
+    Args:
+        texto (String): texto y clave de introducidas
+
+    Raises:
+        ValueError: Error que se muestra si contiene caracteres incorrectos
+    """
+    # Permite sólo letras, números, signos básicos y espacios
+    patron = re.compile(r'^[A-Za-z0-9 .,;:¡!¿?()\-\n\r]*$')
+    # Modifica el patrón para lo que desees permitir
+    if not patron.match(texto):
+        raise ValueError("El texto contiene caracteres no permitidos,"
+                          + "como emoticonos o símbolos especiales.")
 
 
 if __name__ == '__main__':
     print("=" * 50)
     print("      API CIFRADO VIGENÈRE")
     print("=" * 50)
-    print("\n🚀 Servidor iniciando en http://127.0.0.1:5000")
+    print("\n🚀 Servidor iniciando en http://172.20.106.20:5000")
     print("📅 Autor: Gaizka, Diego")
     print("\n📋 Endpoints disponibles:")
     print("  GET  /                        - Información de la API")
