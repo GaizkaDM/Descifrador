@@ -10,30 +10,29 @@ import org.json.JSONObject;
  * Cliente HTTP para consumir la API REST de cifrado Vigenère
  */
 public class APIClient {
-    private static final String API_BASE_URL = "http://127.0.0.1:5000/api/vigenere/";
+
+    private static final String API_BASE_URL = "http://localhost:5000/api/vigenere/";
     private static final HttpClient client = HttpClient.newHttpClient();
 
     /**
-     * Cifra un texto usando el algoritmo Vigenère a través de la API Python
-     *
-     * @param texto Texto a cifrar
-     * @param clave Clave de cifrado
-     * @return Texto cifrado
-     * @throws Exception Si hay un error en la comunicación con la API
+     * Cifra usando Vigenère mediante API REST
      */
     public static String cifrarVigenere(String texto, String clave) throws Exception {
+
         JSONObject json = new JSONObject();
         json.put("texto", texto);
         json.put("clave", clave);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(API_BASE_URL + "cifrar"))
-                .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(json.toString()))
+                .header("Content-Type", "application/json")
                 .build();
 
-        HttpResponse<String> response = client.send(request,
-                HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = client.send(
+                request,
+                HttpResponse.BodyHandlers.ofString()
+        );
 
         if (response.statusCode() != 200) {
             JSONObject errorJson = new JSONObject(response.body());
@@ -45,26 +44,24 @@ public class APIClient {
     }
 
     /**
-     * Descifra un texto usando el algoritmo Vigenère a través de la API Python
-     *
-     * @param textoCifrado Texto cifrado a descifrar
-     * @param clave Clave de descifrado
-     * @return Texto descifrado
-     * @throws Exception Si hay un error en la comunicación con la API
+     * Descifra usando Vigenère mediante API REST
      */
-    public static String descifrarVigenere(String textoCifrado, String clave) throws Exception {
+    public static String descifrarVigenere(String texto, String clave) throws Exception {
+
         JSONObject json = new JSONObject();
-        json.put("texto", textoCifrado);
+        json.put("texto", texto);
         json.put("clave", clave);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(API_BASE_URL + "descifrar"))
-                .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(json.toString()))
+                .header("Content-Type", "application/json")
                 .build();
 
-        HttpResponse<String> response = client.send(request,
-                HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = client.send(
+                request,
+                HttpResponse.BodyHandlers.ofString()
+        );
 
         if (response.statusCode() != 200) {
             JSONObject errorJson = new JSONObject(response.body());

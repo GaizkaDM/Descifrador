@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gaizkaFrost.MainController" stylesheets="@css/styles.css">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu fx:id="archivoMenu" text="Archivo" styleClass="menu-style">
+                    <MenuItem fx:id="salirMenuItem" text="Salir" onAction="#handleSalir"/>
+                </Menu>
+
+                <Menu fx:id="idiomaMenu" text="Idioma" styleClass="menu-style">
+                    <MenuItem fx:id="espanolMenuItem" text="Español" onAction="#handleCambiarEspañol"/>
+                    <MenuItem fx:id="inglesMenuItem" text="Inglés" onAction="#handleCambiarIngles"/>
+                </Menu>
+
+                <Menu fx:id="infoMenu" text="Información" styleClass="menu-style">
+                    <MenuItem fx:id="manualMenuItem" text="Manual" onAction="#handleManual"/>
+                    <MenuItem fx:id="sobreNosotrosMenuItem" text="Sobre Nosotros" onAction="#handleSobreNosotros"/>
+                </Menu>
+            </MenuBar>
+
+            <GridPane hgap="20" styleClass="hogwarts-header" vgap="8">
+                <padding>
+                    <Insets top="10" right="20" bottom="8" left="20"/>
+                </padding>
+                <columnConstraints>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                    <ColumnConstraints prefWidth="240"/>
+                </columnConstraints>
+
+                <Label fx:id="claveLabel" text="Clave:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="hogwarts-label"/>
+                <TextField fx:id="claveField" promptText="Introduce la clave" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                           styleClass="hogwarts-text-field" GridPane.hgrow="ALWAYS" prefHeight="40" prefWidth="95"/>
+
+                <Label fx:id="algoritmoLabel" text="Algoritmo:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="hogwarts-label"/>
+                <ComboBox fx:id="algoritmoCombo" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="hogwarts-combo-box"
+                          prefHeight="41" prefWidth="260">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Vigenère"/>
+                            <String fx:value="AES"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <VBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.rowSpan="2" alignment="TOP_RIGHT"
+                      styleClass="hogwarts-buttons">
+                    <Button fx:id="cifrarBtn" text="Cifrar" maxWidth="Infinity" prefHeight="64" onAction="#handleCifrar"
+                            styleClass="hogwarts-cifrar-btn"/>
+                    <Button fx:id="descifrarBtn" text="Descifrar" maxWidth="Infinity" prefHeight="64" onAction="#handleDescifrar"
+                            styleClass="hogwarts-descifrar-btn"/>
+                </VBox>
+            </GridPane>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label fx:id="entradaLabel" text="Texto de entrada:" styleClass="hogwarts-label-bold"/>
+                <TextArea fx:id="textoEntradaArea" promptText="Escribe el texto aquí..." wrapText="true" VBox.vgrow="ALWAYS"
+                          styleClass="hogwarts-text-area"/>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Button fx:id="cargarBtn" text="Cargar archivo" onAction="#handleCargarArchivo" styleClass="hogwarts-secondary-btn"/>
+                    <Button fx:id="limpiarBtn" text="Limpiar" onAction="#handleLimpiarEntrada" styleClass="hogwarts-tertiary-btn"/>
+                </HBox>
+            </VBox>
+
+            <VBox alignment="CENTER" prefWidth="80" spacing="10">
+                <Label text="➜" styleClass="hogwarts-arrow"/>
+            </VBox>
+
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label fx:id="salidaLabel" text="Texto de salida:" styleClass="hogwarts-label-bold"/>
+                <TextArea fx:id="textoSalidaArea" editable="false" promptText="El resultado aparecerá aquí..."
+                          wrapText="true" VBox.vgrow="ALWAYS" styleClass="hogwarts-text-area output-area"/>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Button fx:id="guardarBtn" text="Guardar resultado" onAction="#handleGuardarResultado" styleClass="hogwarts-success-btn"/>
+                    <Button fx:id="copiarBtn" text="Copiar" onAction="#handleCopiar" styleClass="hogwarts-info-btn"/>
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_LEFT" styleClass="hogwarts-footer">
+            <Label fx:id="statusLabel" text="Listo" styleClass="hogwarts-status-label"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,19 @@
+Index: javafx_front/src/main/java/com/gaizkaFrost/AES/DemoMain.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.gaizkaFrost.AES;\r\n\r\nimport java.nio.charset.StandardCharsets;\r\n\r\nclass DemoMain {\r\n    public static void main(String[] args) {\r\n        String msg = \"Hola Claudia, el examen es el lunes.\";\r\n        char[] pwd = \"super-segura-2025\".toCharArray();\r\n        String aad = \"app=Encriptador;v=1\";\r\n\r\n        String b64 = UseCases.encryptToBase64(msg.getBytes(StandardCharsets.UTF_8), pwd, aad);\r\n        System.out.println(\"CIFRADO (Base64):\\n\" + b64);\r\n\r\n        byte[] plain = UseCases.decryptFromBase64(b64, pwd);\r\n        System.out.println(\"DESCIFRADO:\\n\" + new String(plain, StandardCharsets.UTF_8));\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/javafx_front/src/main/java/com/gaizkaFrost/AES/DemoMain.java b/javafx_front/src/main/java/com/gaizkaFrost/AES/DemoMain.java
+--- a/javafx_front/src/main/java/com/gaizkaFrost/AES/DemoMain.java	(revision fe9e57319c86fbea01d9637af35e72bcbbd63324)
++++ b/javafx_front/src/main/java/com/gaizkaFrost/AES/DemoMain.java	(date 1762515612608)
+@@ -4,7 +4,7 @@
+ 
+ class DemoMain {
+     public static void main(String[] args) {
+-        String msg = "Hola Claudia, el examen es el lunes.";
++        String msg = "Atacaremos Hogwarts en la siguiente luna";
+         char[] pwd = "super-segura-2025".toCharArray();
+         String aad = "app=Encriptador;v=1";
+ 
