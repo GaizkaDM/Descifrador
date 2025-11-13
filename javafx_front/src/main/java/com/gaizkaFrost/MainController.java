@@ -3,8 +3,10 @@ package com.gaizkaFrost;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +19,7 @@ import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,6 +32,8 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.concurrent.Task;
+import javafx.scene.web.WebView;
+
 public class MainController {
 
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
@@ -633,5 +638,22 @@ public class MainController {
         actualizarStatus("Listo");
     }
 
+    @FXML
+    private void handleMostrarManual() {
+        Stage stage = new Stage();
+        stage.setTitle("Manual de Usuario - Descifrador");
+
+        WebView webView = new WebView();
+        URL url = getClass().getResource("/manual-usuario.html");
+        if (url != null) {
+            webView.getEngine().load(url.toExternalForm());
+        } else {
+            webView.getEngine().loadContent("<h1>Manual no disponible</h1>");
+        }
+
+        Scene scene = new Scene(webView, 800, 600);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }

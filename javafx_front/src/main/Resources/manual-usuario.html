@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Usuario - Descifrador</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .code-block {
+            background: #f4f4f4;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            border-radius: 5px;
+        }
+
+        .alert {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .alert-warning {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .alert-success {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+        }
+
+        .alert-error {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-box {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .feature-box h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            padding: 15px;
+            background: #f9f9f9;
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .footer {
+            background: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 Descifrador</h1>
+            <p>Manual de Usuario - v1.0</p>
+        </div>
+
+        <div class="content">
+            <!-- Introducción -->
+            <h2>📖 Introducción</h2>
+            <p>
+                Bienvenido a <strong>Descifrador</strong>, una aplicación de escritorio diseñada para cifrar y descifrar 
+                texto e imágenes utilizando dos algoritmos criptográficos avanzados: <strong>AES</strong> y <strong>Vigenère</strong>. 
+                Esta herramienta permite proteger tu información sensible de forma segura y confiable.
+            </p>
+
+            <h3>Características Principales:</h3>
+            <ul>
+                <li>✅ Cifrado de texto con AES y Vigenère</li>
+                <li>✅ Cifrado de imágenes con AES</li>
+                <li>✅ Interfaz gráfica intuitiva y fácil de usar</li>
+                <li>✅ Soporte multiidioma (Español e Inglés)</li>
+                <li>✅ Exportación de resultados a archivos</li>
+                <li>✅ Copiar resultados al portapapeles</li>
+            </ul>
+
+            <!-- Requisitos -->
+            <h2>💻 Requisitos del Sistema</h2>
+            <div class="feature-grid">
+                <div class="feature-box">
+                    <h4>Software Necesario</h4>
+                    <ul>
+                        <li><strong>Java:</strong> JRE 11 o superior</li>
+                        <li><strong>Python:</strong> 3.8 o superior</li>
+                        <li><strong>SO:</strong> Windows, macOS, Linux</li>
+                    </ul>
+                </div>
+                <div class="feature-box">
+                    <h4>Recursos Mínimos</h4>
+                    <ul>
+                        <li><strong>RAM:</strong> 512 MB</li>
+                        <li><strong>Disco:</strong> 100 MB</li>
+                        <li><strong>Conexión:</strong> No requerida</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Instalación -->
+            <h2>⚙️ Instalación</h2>
+            <ol>
+                <li>Descargar el proyecto desde el repositorio</li>
+                <li>Verificar que Java y Python estén instalados correctamente</li>
+                <li>Compilar el proyecto Java (Maven/IDE)</li>
+                <li>Ejecutar el archivo JAR generado</li>
+                <li>La aplicación iniciará automáticamente la API de Python en el puerto 5000</li>
+            </ol>
+
+            <div class="alert alert-success">
+                <strong>✓ Consejo:</strong> La aplicación arrancará tanto la interfaz gráfica como el servidor API automáticamente.
+            </div>
+
+            <!-- Interfaz Principal -->
+            <h2>🖥️ Interfaz Principal</h2>
+            <p>La ventana principal está dividida en varias secciones:</p>
+
+            <h3>1. Selección de Algoritmo</h3>
+            <p>
+                Menú desplegable para elegir entre <strong>Vigenère</strong> (más rápido, solo texto) 
+                y <strong>AES</strong> (más seguro, texto e imágenes). Por defecto viene seleccionado AES.
+            </p>
+
+            <h3>2. Campo de Clave</h3>
+            <p>
+                Introduce una clave fuerte y única. La clave es fundamental para cifrar y descifrar. 
+                <strong>Recuerda la clave</strong> si deseas descifrar más adelante.
+            </p>
+            <div class="alert alert-warning">
+                <strong>⚠️ Importante:</strong> Sin la clave correcta, es imposible descifrar los datos. No hay forma de recuperarlos.
+            </div>
+
+            <h3>3. Área de Entrada</h3>
+            <p>
+                Espacio para escribir o pegar texto a cifrar/descifrar. 
+                También puedes cargar archivos (texto, imágenes) usando el botón "Cargar archivo".
+            </p>
+
+            <h3>4. Área de Salida</h3>
+            <p>
+                Muestra el resultado del cifrado o descifrado. Puedes copiar este contenido 
+                al portapapeles o guardarlo en un archivo.
+            </p>
+
+            <!-- Guía de Uso -->
+            <h2>🚀 Guía de Uso</h2>
+
+            <h3>Cifrar Texto</h3>
+            <ol>
+                <li><span class="step-number">1</span>Selecciona el algoritmo (AES o Vigenère)</li>
+                <li><span class="step-number">2</span>Introduce una clave fuerte</li>
+                <li><span class="step-number">3</span>Escribe el texto en el área de entrada</li>
+                <li><span class="step-number">4</span>Haz clic en <strong>Cifrar</strong></li>
+                <li><span class="step-number">5</span>El resultado aparecerá en el área de salida</li>
+            </ol>
+
+            <h3>Descifrar Texto</h3>
+            <ol>
+                <li><span class="step-number">1</span>Selecciona el mismo algoritmo que usaste</li>
+                <li><span class="step-number">2</span>Introduce la clave correcta</li>
+                <li><span class="step-number">3</span>Pega el texto cifrado en el área de entrada</li>
+                <li><span class="step-number">4</span>Haz clic en <strong>Descifrar</strong></li>
+                <li><span class="step-number">5</span>Verás el texto original en el área de salida</li>
+            </ol>
+
+            <h3>Cifrar Imagen</h3>
+            <ol>
+                <li><span class="step-number">1</span>Selecciona el algoritmo <strong>AES</strong></li>
+                <li><span class="step-number">2</span>Introduce una clave fuerte</li>
+                <li><span class="step-number">3</span>Haz clic en <strong>Cargar archivo</strong></li>
+                <li><span class="step-number">4</span>Selecciona la imagen (PNG, JPG, JPEG, BMP)</li>
+                <li><span class="step-number">5</span>Verás el mensaje "🖼️ Imagen cargada"</li>
+                <li><span class="step-number">6</span>Haz clic en <strong>Cifrar</strong></li>
+                <li><span class="step-number">7</span>La imagen se guardará como <code>.enc</code></li>
+            </ol>
+
+            <h3>Descifrar Imagen</h3>
+            <ol>
+                <li><span class="step-number">1</span>Selecciona el algoritmo <strong>AES</strong></li>
+                <li><span class="step-number">2</span>Introduce la clave correcta</li>
+                <li><span class="step-number">3</span>Haz clic en <strong>Cargar archivo</strong></li>
+                <li><span class="step-number">4</span>Selecciona el archivo <code>.enc</code></li>
+                <li><span class="step-number">5</span>Haz clic en <strong>Descifrar</strong></li>
+                <li><span class="step-number">6</span>La imagen se guardará como <code>_descifrada.png</code></li>
+            </ol>
+
+            <!-- Algoritmos -->
+            <h2>🔒 Algoritmos Soportados</h2>
+
+            <h3>Vigenère</h3>
+            <div class="feature-box">
+                <strong>Características:</strong>
+                <ul>
+                    <li>Cifrado clásico basado en sustitución polialfabética</li>
+                    <li>Rápido y eficiente</li>
+                    <li>Ideal para texto de tamaño pequeño a medio</li>
+                    <li>❌ No soporta imágenes</li>
+                </ul>
+            </div>
+
+            <h3>AES (Advanced Encryption Standard)</h3>
+            <div class="feature-box">
+                <strong>Características:</strong>
+                <ul>
+                    <li>Estándar de cifrado moderno y seguro</li>
+                    <li>✅ Soporta texto e imágenes</li>
+                    <li>Utiliza GCM para autenticación</li>
+                    <li>Recomendado para datos sensibles</li>
+                    <li><strong>Clave:</strong> 128 bits (derivada de tu clave)</li>
+                </ul>
+            </div>
+
+            <!-- Consejos de Seguridad -->
+            <h2>🛡️ Consejos de Seguridad</h2>
+            <ul>
+                <li><strong>Usa claves fuertes:</strong> Combina mayúsculas, minúsculas, números y símbolos</li>
+                <li><strong>Longitud:</strong> Mínimo 8 caracteres, preferiblemente 16+</li>
+                <li><strong>Unicidad:</strong> No reutilices la misma clave para múltiples archivos</li>
+                <li><strong>Almacenamiento:</strong> Guarda tus claves en un lugar seguro</li>
+                <li><strong>Verificación:</strong> Prueba el descifrado antes de borrar el original</li>
+                <li><strong>Privacidad:</strong> Esta aplicación es local, no envía datos a internet</li>
+            </ul>
+
+            <!-- Solución de Problemas -->
+            <h2>🔧 Solución de Problemas</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">❌ Error: "No hay texto para cifrar"</div>
+                <div class="faq-answer">
+                    <strong>Solución:</strong> Asegúrate de introducir texto en el área de entrada 
+                    o cargar un archivo válido usando "Cargar archivo".
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">❌ Error: "Introduce una clave para cifrar"</div>
+                <div class="faq-answer">
+                    <strong>Solución:</strong> Rellena el campo de clave con un valor no vacío.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">❌ Error: "Vigenère no soporta cifrar imágenes"</div>
+                <div class="faq-answer">
+                    <strong>Solución:</strong> Usa el algoritmo <strong>AES</strong> para cifrar imágenes. 
+                    Vigenère solo funciona con texto.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">❌ Error: "No se pudo leer el archivo"</div>
+                <div class="faq-answer">
+                    <strong>Solución:</strong> Verifica que el archivo exista, no esté protegido 
+                    y tengas permisos de lectura. Prueba con otro archivo.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">❌ La API no arranca</div>
+                <div class="faq-answer">
+                    <strong>Solución:</strong> Asegúrate de tener Python instalado y accesible. 
+                    Verifica que el puerto 5000 no esté en uso. Reinicia la aplicación.
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <h2>❓ Preguntas Frecuentes</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Qué algoritmo debo usar?</div>
+                <div class="faq-answer">
+                    Para máxima seguridad, usa <strong>AES</strong>. Es más moderno y soporta imágenes. 
+                    Vigenère es más rápido pero menos seguro.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Puedo cifrar archivos muy grandes?</div>
+                <div class="faq-answer">
+                    Sí, ambos algoritmos soportan archivos grandes. El tiempo dependerá del tamaño 
+                    y la potencia de tu máquina.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Qué sucede si olvido mi clave?</div>
+                <div class="faq-answer">
+                    Sin la clave correcta es imposible descifrar. <strong>No hay forma de recuperarla.</strong> 
+                    Guarda siempre tus claves en un lugar seguro.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Es seguro usar esta aplicación en línea?</div>
+                <div class="faq-answer">
+                    Esta aplicación está diseñada para uso local. El servidor corre en tu máquina 
+                    (localhost:5000). No se envía información a internet.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">¿Qué formatos de imagen soporta?</div>
+                <div class="faq-answer">
+                    Soportamos: PNG, JPG, JPEG, BMP. Los archivos cifrados se guardan con extensión <code>.enc</code>.
+                </div>
+            </div>
+
+            <!-- Menús -->
+            <h2>📋 Opciones de Menú</h2>
+
+            <h3>Menú Archivo</h3>
+            <ul>
+                <li><strong>Salir:</strong> Cierra la aplicación y detiene el servidor API</li>
+            </ul>
+
+            <h3>Menú Idioma</h3>
+            <ul>
+                <li><strong>Español:</strong> Cambia la interfaz al español</li>
+                <li><strong>English:</strong> Cambia la interfaz al inglés</li>
+            </ul>
+
+            <h3>Menú Información</h3>
+            <ul>
+                <li><strong>Manual:</strong> Abre este manual de usuario</li>
+                <li><strong>Sobre Nosotros:</strong> Información del equipo desarrollador</li>
+            </ul>
+
+            <!-- Botones -->
+            <h2>🔘 Botones Principales</h2>
+            <table class="table">
+                <tr>
+                    <th>Botón</th>
+                    <th>Función</th>
+                </tr>
+                <tr>
+                    <td><strong>Cargar archivo</strong></td>
+                    <td>Abre diálogo para seleccionar archivo (texto/imagen)</td>
+                </tr>
+                <tr>
+                    <td><strong>Limpiar</strong></td>
+                    <td>Borra contenido y reinicia la interfaz</td>
+                </tr>
+                <tr>
+                    <td><strong>Cifrar</strong></td>
+                    <td>Cifra el contenido con el algoritmo seleccionado</td>
+                </tr>
+                <tr>
+                    <td><strong>Descifrar</strong></td>
+                    <td>Descifra el contenido con el algoritmo seleccionado</td>
+                </tr>
+                <tr>
+                    <td><strong>Guardar resultado</strong></td>
+                    <td>Guarda la salida en un archivo .txt</td>
+                </tr>
+                <tr>
+                    <td><strong>Copiar</strong></td>
+                    <td>Copia el resultado al portapapeles</td>
+                </tr>
+            </table>
+
+            <!-- Archivos Generados -->
+            <h2>📁 Archivos Generados</h2>
+            <ul>
+                <li><code>[nombre].enc</code> - Imágenes cifradas</li>
+                <li><code>[nombre]_descifrada.png</code> - Imágenes descifradas</li>
+                <li><code>resultado.txt</code> - Texto guardado desde la app</li>
+                <li><code>application.log</code> - Registro de eventos y errores</li>
+            </ul>
+
+            <!-- Contacto -->
+            <h2>📞 Contacto y Soporte</h2>
+            <p>
+                Para reportar bugs, sugerencias o preguntas sobre la aplicación, 
+                contacta al equipo de desarrollo a través del repositorio del proyecto.
+            </p>
+
+            <div class="alert">
+                <strong>Versión:</strong> Manual de Usuario v1.0 - Descifrador<br>
+                <strong>Actualizado:</strong> Noviembre 2025
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Descifrador. Todos los derechos reservados.</p>
+            <p>Desarrollado con ❤️ para proteger tu privacidad</p>
+        </div>
+    </div>
+</body>
+</html>

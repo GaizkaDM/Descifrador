@@ -22,7 +22,7 @@
                 </Menu>
 
                 <Menu fx:id="infoMenu" text="Información" styleClass="menu-style">
-                    <MenuItem fx:id="manualMenuItem" text="Manual" onAction="#handleManual"/>
+                    <MenuItem fx:id="manualMenuItem" text="Manual" onAction="#handleMostrarManual"/>
                     <MenuItem fx:id="sobreNosotrosMenuItem" text="Sobre Nosotros" onAction="#handleSobreNosotros"/>
                 </Menu>
             </MenuBar>
