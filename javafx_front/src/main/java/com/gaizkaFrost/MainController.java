@@ -246,20 +246,6 @@ public class MainController {
         return statusLabel != null ? statusLabel.getScene().getWindow() : null;
     }
 
-    // === Vigenère local opcional (no usado si tiráis siempre de API) ===
-
-    private static String cifrarVigenereLocal(String texto, String clave) {
-        StringBuilder sb = new StringBuilder();
-        int n = clave.length();
-        if (n == 0) return texto;
-        for (int i = 0; i < texto.length(); i++) {
-            char ch = texto.charAt(i);
-            char key = clave.charAt(i % n);
-            sb.append(shiftVigenere(ch, key, true));
-        }
-        return sb.toString();
-    }
-
     private void mostrarErrorAlert(String mensaje) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
