@@ -6,21 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="56387091-5a77-4bc5-b9c8-2f55cd6b62d0" name="Changes" comment="Fix corregidos imports sin usar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/CipherArtifact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/CipherArtifact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/CryptoEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/CryptoEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/CryptoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/CryptoException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/DemoMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/DemoMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/KeyDerivation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/KeyDerivation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/KeyMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/KeyMaterial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/Policy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/Policy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/RandomSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/RandomSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/Serializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AES/Serializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AESCryptoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AESCryptoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AESImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/AESImageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/APIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/APIClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/Lanzador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/Lanzador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Resources/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/MainView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="Develop" />
+        <entry key="$PROJECT_DIR$/.." value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -60,6 +47,7 @@
     "Application.Lanzador.executor": "Run",
     "Maven.descifrador [clean].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "Dev-DFG",
     "junie.onboarding.icon.badge.shown": "true",
@@ -77,7 +65,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
       </set>
     </attachedChunks>
   </component>

@@ -38,11 +38,18 @@
 
                 <Label fx:id="claveLabel" text="Clave:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="hogwarts-label"/>
                 <TextField fx:id="claveField" promptText="Introduce la clave" GridPane.columnIndex="0" GridPane.rowIndex="0"
-                           styleClass="hogwarts-text-field" GridPane.hgrow="ALWAYS" prefHeight="40" prefWidth="95"/>
+                           styleClass="hogwarts-text-field" GridPane.hgrow="ALWAYS" prefHeight="40" prefWidth="95">
+                    <tooltip>
+                        <Tooltip text="Clave utilizada para cifrar o descifrar. Respeta mayúsculas y minúsculas."/>
+                    </tooltip>
+                </TextField>
 
                 <Label fx:id="algoritmoLabel" text="Algoritmo:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="hogwarts-label"/>
                 <ComboBox fx:id="algoritmoCombo" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="hogwarts-combo-box"
                           prefHeight="41" prefWidth="260">
+                    <tooltip>
+                        <Tooltip text="Selecciona el algoritmo de cifrado (Vigenère o AES)."/>
+                    </tooltip>
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="Vigenère"/>
@@ -54,9 +61,17 @@
                 <VBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.rowSpan="2" alignment="TOP_RIGHT"
                       styleClass="hogwarts-buttons">
                     <Button fx:id="cifrarBtn" text="Cifrar" maxWidth="Infinity" prefHeight="64" onAction="#handleCifrar"
-                            styleClass="hogwarts-cifrar-btn"/>
+                            styleClass="hogwarts-cifrar-btn">
+                        <tooltip>
+                            <Tooltip text="Cifra usando la clave y el algoritmo seleccionados."/>
+                        </tooltip>
+                    </Button>
                     <Button fx:id="descifrarBtn" text="Descifrar" maxWidth="Infinity" prefHeight="64" onAction="#handleDescifrar"
-                            styleClass="hogwarts-descifrar-btn"/>
+                            styleClass="hogwarts-descifrar-btn">
+                        <tooltip>
+                            <Tooltip text="Descifra usando la clave y el algoritmo seleccionados."/>
+                        </tooltip>
+                    </Button>
                 </VBox>
             </GridPane>
         </VBox>
@@ -67,13 +82,26 @@
             <padding>
                 <Insets top="20" right="20" bottom="20" left="20"/>
             </padding>
+
             <VBox spacing="10" HBox.hgrow="ALWAYS">
                 <Label fx:id="entradaLabel" text="Texto de entrada:" styleClass="hogwarts-label-bold"/>
                 <TextArea fx:id="textoEntradaArea" promptText="Escribe el texto aquí..." wrapText="true" VBox.vgrow="ALWAYS"
-                          styleClass="hogwarts-text-area"/>
+                          styleClass="hogwarts-text-area">
+                    <tooltip>
+                        <Tooltip text="Texto que será cifrado o descifrado. También puede venir de un archivo."/>
+                    </tooltip>
+                </TextArea>
                 <HBox alignment="CENTER_LEFT" spacing="10">
-                    <Button fx:id="cargarBtn" text="Cargar archivo" onAction="#handleCargarArchivo" styleClass="hogwarts-secondary-btn"/>
-                    <Button fx:id="limpiarBtn" text="Limpiar" onAction="#handleLimpiarEntrada" styleClass="hogwarts-tertiary-btn"/>
+                    <Button fx:id="cargarBtn" text="Cargar archivo" onAction="#handleCargarArchivo" styleClass="hogwarts-secondary-btn">
+                        <tooltip>
+                            <Tooltip text="Selecciona un archivo de texto o imagen para cifrar o descifrar."/>
+                        </tooltip>
+                    </Button>
+                    <Button fx:id="limpiarBtn" text="Limpiar" onAction="#handleLimpiarEntrada" styleClass="hogwarts-tertiary-btn">
+                        <tooltip>
+                            <Tooltip text="Limpia el área de entrada."/>
+                        </tooltip>
+                    </Button>
                 </HBox>
             </VBox>
 
@@ -84,12 +112,25 @@
             <VBox spacing="10" HBox.hgrow="ALWAYS">
                 <Label fx:id="salidaLabel" text="Texto de salida:" styleClass="hogwarts-label-bold"/>
                 <TextArea fx:id="textoSalidaArea" editable="false" promptText="El resultado aparecerá aquí..."
-                          wrapText="true" VBox.vgrow="ALWAYS" styleClass="hogwarts-text-area output-area"/>
+                          wrapText="true" VBox.vgrow="ALWAYS" styleClass="hogwarts-text-area output-area">
+                    <tooltip>
+                        <Tooltip text="Aquí aparecerá el resultado del cifrado o descifrado."/>
+                    </tooltip>
+                </TextArea>
                 <HBox alignment="CENTER_LEFT" spacing="10">
-                    <Button fx:id="guardarBtn" text="Guardar resultado" onAction="#handleGuardarResultado" styleClass="hogwarts-success-btn"/>
-                    <Button fx:id="copiarBtn" text="Copiar" onAction="#handleCopiar" styleClass="hogwarts-info-btn"/>
+                    <Button fx:id="guardarBtn" text="Guardar resultado" onAction="#handleGuardarResultado" styleClass="hogwarts-success-btn">
+                        <tooltip>
+                            <Tooltip text="Guarda el resultado en un archivo."/>
+                        </tooltip>
+                    </Button>
+                    <Button fx:id="copiarBtn" text="Copiar" onAction="#handleCopiar" styleClass="hogwarts-info-btn">
+                        <tooltip>
+                            <Tooltip text="Copia el resultado al portapapeles."/>
+                        </tooltip>
+                    </Button>
                 </HBox>
             </VBox>
+
         </HBox>
     </center>
 
