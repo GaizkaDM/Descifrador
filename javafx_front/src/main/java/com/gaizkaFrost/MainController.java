@@ -14,23 +14,51 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class MainController {
 
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
     // === FXML ===
-    @FXML private TextField claveField;
-    @FXML private TextArea textoEntradaArea;
-    @FXML private TextArea textoSalidaArea;
-    @FXML private ComboBox<String> algoritmoCombo;
-    @FXML private Label statusLabel;
+    @FXML private Menu archivoMenu;
+    @FXML private MenuItem salirMenuItem;
+    @FXML private Menu idiomaMenu;
+    @FXML private MenuItem espanolMenuItem;
+    @FXML private MenuItem inglesMenuItem;
+    @FXML private Menu infoMenu;
+    @FXML private MenuItem manualMenuItem;
+    @FXML private MenuItem sobreNosotrosMenuItem;
 
+    // Campos y botones principales
+    @FXML private Label claveLabel;
+    @FXML private TextField claveField;
+    @FXML private Label algoritmoLabel;
+    @FXML private ComboBox<String> algoritmoCombo;
+    @FXML private Button cifrarBtn;
+    @FXML private Button descifrarBtn;
+
+    @FXML private Label entradaLabel;
+    @FXML private TextArea textoEntradaArea;
+    @FXML private Button cargarBtn;
+    @FXML private Button limpiarBtn;
+
+    @FXML private Label salidaLabel;
+    @FXML private TextArea textoSalidaArea;
+    @FXML private Button guardarBtn;
+    @FXML private Button copiarBtn;
+
+    @FXML private Label statusLabel;
+// Añade más controles que necesites actualizar
+
+    Locale currentLocale;
+    ResourceBundle bundle = ResourceBundle.getBundle("messages", new Locale("es", "ES"));
     @FXML
     private void initialize() {
         logger.info("Inicializando MainController");
-
+        cambiarIdioma(new Locale("es", "ES"));
         if (algoritmoCombo != null && (algoritmoCombo.getValue() == null || algoritmoCombo.getValue().isBlank())) {
             algoritmoCombo.getItems().setAll("Vigenère", "AES");
             algoritmoCombo.setValue("AES");
@@ -262,14 +290,13 @@ public class MainController {
 
         @FXML
         private void handleCambiarEspañol() {
-            // Aquí deberías implementar el cambio de idioma a Español
-            // Por ahora, avisamos al usuario
+        cambiarIdioma(new Locale("es", "ES"));
             showInfoAlert("Idioma cambiado a Español");
         }
 
         @FXML
         private void handleCambiarIngles() {
-            // Aquí deberías implementar el cambio de idioma a Inglés
+            cambiarIdioma(new Locale("en", "EN"));
             showInfoAlert("Language changed to English");
         }
 
@@ -293,8 +320,39 @@ public class MainController {
             alert.setContentText(message);
             alert.showAndWait();
         }
+    public void cambiarIdioma(Locale locale) {
+        currentLocale = locale;
+        bundle = ResourceBundle.getBundle("messages", currentLocale);
+        actualizarTextos(bundle);
+    }
+    // Método para actualizar todos los textos con el ResourceBundle elegido
+    private void actualizarTextos(ResourceBundle bundle) {
+        archivoMenu.setText(bundle.getString("archivo"));
+        salirMenuItem.setText(bundle.getString("salir"));
+        idiomaMenu.setText(bundle.getString("idioma"));
+        espanolMenuItem.setText(bundle.getString("espanol"));
+        inglesMenuItem.setText(bundle.getString("ingles"));
+        infoMenu.setText(bundle.getString("informacion"));
+        manualMenuItem.setText(bundle.getString("manual"));
+        sobreNosotrosMenuItem.setText(bundle.getString("sobre_nosotros"));
+        claveLabel.setText(bundle.getString("clave"));
+        claveField.setPromptText(bundle.getString("introduce_clave"));
+        algoritmoLabel.setText(bundle.getString("algoritmo"));
+        algoritmoCombo.getItems().setAll(bundle.getString("vigenere"), bundle.getString("aes"));
+        cifrarBtn.setText(bundle.getString("cifrar"));
+        descifrarBtn.setText(bundle.getString("descifrar"));
+        entradaLabel.setText(bundle.getString("texto_entrada"));
+        textoEntradaArea.setPromptText(bundle.getString("escribe_aqui"));
+        cargarBtn.setText(bundle.getString("cargar_archivo"));
+        limpiarBtn.setText(bundle.getString("limpiar"));
+        salidaLabel.setText(bundle.getString("texto_salida"));
+        textoSalidaArea.setPromptText(bundle.getString("resultado_aqui"));
+        guardarBtn.setText(bundle.getString("guardar_resultado"));
+        copiarBtn.setText(bundle.getString("copiar"));
 
-        // Aquí irían el resto de tus métodos como handleCifrar(), handleDescifrar(), etc.
+    }
+
+
 }
 
 

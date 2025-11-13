@@ -12,21 +12,18 @@
     <top>
         <VBox>
             <MenuBar>
-                <!-- Menú 1: Salir -->
-                <Menu text="Archivo" styleClass="menu-style">
-                    <MenuItem text="Salir" onAction="#handleSalir"/>
+                <Menu fx:id="archivoMenu" text="Archivo" styleClass="menu-style">
+                    <MenuItem fx:id="salirMenuItem" text="Salir" onAction="#handleSalir"/>
                 </Menu>
 
-                <!-- Menú 2: Cambiar idioma -->
-                <Menu text="Idioma" styleClass="menu-style">
-                    <MenuItem text="Español" onAction="#handleCambiarEspañol"/>
-                    <MenuItem text="Inglés" onAction="#handleCambiarIngles"/>
+                <Menu fx:id="idiomaMenu" text="Idioma" styleClass="menu-style">
+                    <MenuItem fx:id="espanolMenuItem" text="Español" onAction="#handleCambiarEspañol"/>
+                    <MenuItem fx:id="inglesMenuItem" text="Inglés" onAction="#handleCambiarIngles"/>
                 </Menu>
 
-                <!-- Menú 3: Información -->
-                <Menu text="Información" styleClass="menu-style">
-                    <MenuItem text="Manual" onAction="#handleManual"/>
-                    <MenuItem text="Sobre Nosotros" onAction="#handleSobreNosotros"/>
+                <Menu fx:id="infoMenu" text="Información" styleClass="menu-style">
+                    <MenuItem fx:id="manualMenuItem" text="Manual" onAction="#handleManual"/>
+                    <MenuItem fx:id="sobreNosotrosMenuItem" text="Sobre Nosotros" onAction="#handleSobreNosotros"/>
                 </Menu>
             </MenuBar>
 
@@ -39,11 +36,11 @@
                     <ColumnConstraints prefWidth="240"/>
                 </columnConstraints>
 
-                <Label text="Clave:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="hogwarts-label"/>
+                <Label fx:id="claveLabel" text="Clave:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="hogwarts-label"/>
                 <TextField fx:id="claveField" promptText="Introduce la clave" GridPane.columnIndex="0" GridPane.rowIndex="0"
                            styleClass="hogwarts-text-field" GridPane.hgrow="ALWAYS" prefHeight="40" prefWidth="95"/>
 
-                <Label text="Algoritmo:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="hogwarts-label"/>
+                <Label fx:id="algoritmoLabel" text="Algoritmo:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="hogwarts-label"/>
                 <ComboBox fx:id="algoritmoCombo" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="hogwarts-combo-box"
                           prefHeight="41" prefWidth="260">
                     <items>
@@ -71,12 +68,12 @@
                 <Insets top="20" right="20" bottom="20" left="20"/>
             </padding>
             <VBox spacing="10" HBox.hgrow="ALWAYS">
-                <Label text="Texto de entrada:" styleClass="hogwarts-label-bold"/>
+                <Label fx:id="entradaLabel" text="Texto de entrada:" styleClass="hogwarts-label-bold"/>
                 <TextArea fx:id="textoEntradaArea" promptText="Escribe el texto aquí..." wrapText="true" VBox.vgrow="ALWAYS"
                           styleClass="hogwarts-text-area"/>
                 <HBox alignment="CENTER_LEFT" spacing="10">
-                    <Button text="Cargar archivo" onAction="#handleCargarArchivo" styleClass="hogwarts-secondary-btn"/>
-                    <Button text="Limpiar" onAction="#handleLimpiarEntrada" styleClass="hogwarts-tertiary-btn"/>
+                    <Button fx:id="cargarBtn" text="Cargar archivo" onAction="#handleCargarArchivo" styleClass="hogwarts-secondary-btn"/>
+                    <Button fx:id="limpiarBtn" text="Limpiar" onAction="#handleLimpiarEntrada" styleClass="hogwarts-tertiary-btn"/>
                 </HBox>
             </VBox>
 
@@ -85,12 +82,12 @@
             </VBox>
 
             <VBox spacing="10" HBox.hgrow="ALWAYS">
-                <Label text="Texto de salida:" styleClass="hogwarts-label-bold"/>
+                <Label fx:id="salidaLabel" text="Texto de salida:" styleClass="hogwarts-label-bold"/>
                 <TextArea fx:id="textoSalidaArea" editable="false" promptText="El resultado aparecerá aquí..."
                           wrapText="true" VBox.vgrow="ALWAYS" styleClass="hogwarts-text-area output-area"/>
                 <HBox alignment="CENTER_LEFT" spacing="10">
-                    <Button text="Guardar resultado" onAction="#handleGuardarResultado" styleClass="hogwarts-success-btn"/>
-                    <Button text="Copiar" onAction="#handleCopiar" styleClass="hogwarts-info-btn"/>
+                    <Button fx:id="guardarBtn" text="Guardar resultado" onAction="#handleGuardarResultado" styleClass="hogwarts-success-btn"/>
+                    <Button fx:id="copiarBtn" text="Copiar" onAction="#handleCopiar" styleClass="hogwarts-info-btn"/>
                 </HBox>
             </VBox>
         </HBox>
