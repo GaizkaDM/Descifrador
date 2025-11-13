@@ -131,6 +131,7 @@ public class MainController {
                 textoEntradaArea.setText("🖼️ Imagen cargada: " + selectedFile.getName());
                 logger.info("Archivo de imagen o cifrado seleccionado: {}", rutaImagenSeleccionada);
                 actualizarStatus("Archivo de imagen cargado correctamente");
+                showInfoAlert("Archivo de imagen cargado correctamente");
             } else {
                 rutaImagenSeleccionada = null;
                 try {
