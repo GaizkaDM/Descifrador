@@ -136,7 +136,7 @@ def es_clave_valida_vigenere(clave):
         _bool_: True si es valida, False en caso contrario
     """
     # Solo permite letras (mayúsculas y minúsculas, sin espacios, números ni símbolos)
-    return bool(re.fullmatch(r'[A-Za-z]+', clave.strip() if clave else ""))
+    return bool(re.fullmatch(r'[A-Za-zÑñ]+', clave.strip() if clave else ""))
 
 @app.route('/api/vigenere/descifrar', methods=['POST'])
 def descifrar():
@@ -243,7 +243,7 @@ def validar_texto_sin_emoticonos(texto):
         ValueError: Error que se muestra si contiene caracteres incorrectos
     """
     # Permite sólo letras, números, signos básicos y espacios
-    patron = re.compile(r'^[A-Za-z0-9 .,;:¡!¿?()\-\n\r]*$')
+    patron = re.compile(r'^[A-Za-zÁÀÄÂÃÉÈËÊÍÌÏÎÓÒÖÔÕÚÙÜÛÑáàäâãéèëêíìïîóòöôõúùüûñ .,;:¡!¿?()\-\n\r]*$')
     # Modifica el patrón para lo que desees permitir
     if not patron.match(texto):
         raise ValueError("El texto contiene caracteres no permitidos,"

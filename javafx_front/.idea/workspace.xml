@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56387091-5a77-4bc5-b9c8-2f55cd6b62d0" name="Changes" comment="Fix corregida validacion de la clave">
-      <change afterPath="$PROJECT_DIR$/src/main/Resources/imagenes/icono.png" afterDir="false" />
+    <list default="true" id="56387091-5a77-4bc5-b9c8-2f55cd6b62d0" name="Changes" comment="Fix corregida ventana principal">
+      <change beforePath="$PROJECT_DIR$/../Python_backend/api_cifrado_vigenere.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Python_backend/api_cifrado_vigenere.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Python_backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Python_backend/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Python_backend/vigenere.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Python_backend/vigenere.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/messages_es.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/messages_es.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gaizkaFrost/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763119028490</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix corregida ventana principal">
+      <option name="closed" value="true" />
+      <created>1763124874728</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1763124874728</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -123,6 +129,7 @@
     <MESSAGE value="Fix corregida ruta para api python." />
     <MESSAGE value="Fix corregido manual de usuario" />
     <MESSAGE value="Fix corregida validacion de la clave" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix corregida validacion de la clave" />
+    <MESSAGE value="Fix corregida ventana principal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix corregida ventana principal" />
   </component>
 </project>

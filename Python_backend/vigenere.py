@@ -9,7 +9,7 @@
 
 import os
 
-ABC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+ABC = "AÁÀÄÂÃBCDEÉÈËÊFGHIÍÌÏÎJKLMNÑOÓÒÖÔÕPQRSTUÚÙÜÛVWXYZ"
 CLAVE="CLAVE"
 
 
@@ -38,7 +38,7 @@ def num_a_letra(num):
     Returns:
         str: Letra correspondiente
     """
-    return ABC[num % 26]
+    return ABC[num % len(ABC)]
 
 def repetir_clave(texto, clave):
     """Repite la clave hasta la longitud del texto.
