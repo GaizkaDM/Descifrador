@@ -37,7 +37,7 @@
                 </columnConstraints>
 
                 <Label fx:id="claveLabel" text="Clave:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="hogwarts-label"/>
-                <TextField fx:id="claveField" promptText="Introduce la clave" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                <TextField fx:id="claveField" promptText="Introduce tu Wizard Key" GridPane.columnIndex="0" GridPane.rowIndex="0"
                            styleClass="hogwarts-text-field" GridPane.hgrow="ALWAYS" prefHeight="40" prefWidth="95">
                     <tooltip>
                         <Tooltip text="Clave utilizada para cifrar o descifrar. Respeta mayúsculas y minúsculas."/>

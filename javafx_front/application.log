@@ -106,3 +106,7 @@ javax.crypto.AEADBadTagException: Tag mismatch
 2025-11-13 18:41:16 [JavaFX Application Thread] DEBUG com.gaizkaFrost.MainController - Status actualizado: Listo
 2025-11-13 18:41:23 [JavaFX Application Thread] DEBUG com.gaizkaFrost.MainController - Status actualizado: Introduce una clave para cifrar
 2025-11-13 18:41:28 [JavaFX Application Thread] INFO  com.gaizkaFrost.MainController - Acción: cargar archivo de entrada
+2025-11-14 12:50:20 [JavaFX Application Thread] INFO  com.gaizkaFrost.MainController - Inicializando MainController
+2025-11-14 12:50:20 [JavaFX Application Thread] DEBUG com.gaizkaFrost.MainController - Status actualizado: Listo
+2025-11-14 12:55:33 [JavaFX Application Thread] INFO  com.gaizkaFrost.MainController - Inicializando MainController
+2025-11-14 12:55:33 [JavaFX Application Thread] DEBUG com.gaizkaFrost.MainController - Status actualizado: Listo
