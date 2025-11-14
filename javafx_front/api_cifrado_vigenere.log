@@ -1,0 +1,25 @@
+2025-11-13 19:11:44,507 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-13 19:11:44,508 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-13 19:11:44,511 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 19:11:45,201 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 19:11:45,208 - werkzeug - INFO -  * Debugger PIN: 130-433-804
+2025-11-13 19:14:34,554 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-13 19:14:34,557 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-13 19:14:34,560 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 19:14:35,106 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 19:14:35,111 - werkzeug - INFO -  * Debugger PIN: 130-433-804
+2025-11-14 10:54:23,722 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 10:54:23,723 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 10:54:23,726 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 10:54:24,474 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 10:54:24,480 - werkzeug - INFO -  * Debugger PIN: 986-193-483
+2025-11-14 12:38:19,482 - werkzeug - INFO -  * Detected change in 'C:\\Users\\diieg\\Desktop\\DAM\\PROYECTOS\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:50:20,766 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:50:20,766 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:50:20,769 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:50:21,470 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:50:21,475 - werkzeug - INFO -  * Debugger PIN: 986-193-483
