@@ -1,0 +1,545 @@
+2025-11-13 10:09:37,576 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-13 10:09:37,576 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-13 10:09:37,578 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 10:09:37,863 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 10:09:37,865 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 10:15:40,457 - root - INFO - Texto cifrado exitosamente (longitud: 5)
+2025-11-13 10:15:40,458 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 10:15:40] "POST /api/vigenere/cifrar HTTP/1.1" 200 -
+2025-11-13 10:15:44,312 - root - ERROR - La clave debe tener al menos 3 caracteres
+2025-11-13 10:15:44,312 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 10:15:44] "[31m[1mPOST /api/vigenere/cifrar HTTP/1.1[0m" 400 -
+2025-11-13 11:39:37,310 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:39:37,367 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:39:37,723 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:39:37,726 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:39:37,891 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:39:37,918 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:39:38,231 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:39:38,234 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:39:40,552 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:39:40,581 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:39:40,933 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:39:40,935 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:39:43,271 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:39:43,302 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:39:43,617 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:39:43,619 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:39:44,891 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:39:44,921 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:39:45,217 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:39:45,220 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:39:49,730 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:39:49,760 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:39:50,072 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:39:50,074 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:39:57,846 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:39:57,874 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:39:58,191 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:39:58,194 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:40:01,633 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:40:01,659 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:40:01,962 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:40:01,965 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:40:04,299 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:40:04,325 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:40:04,602 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:40:04,604 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:40:06,936 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:40:06,964 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:40:07,263 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:40:07,266 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:40:13,951 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:40:13,980 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:40:14,280 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:40:14,283 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:40:21,019 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:40:21,048 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:40:21,365 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:40:21,368 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:40:22,634 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:40:22,668 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:40:22,973 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:40:22,976 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:40:39,373 - root - ERROR - Error inesperado en cifrar: substring not found
+Traceback (most recent call last):
+  File "C:\Users\GaizkaClase\IdeaProjects\Descifrador\Python_backend\app.py", line 107, in cifrar
+    texto_cifrado = cifrar_vigenere(texto, clave)
+  File "C:\Users\GaizkaClase\IdeaProjects\Descifrador\Python_backend\vigenere.py", line 95, in cifrar
+    suma = letra_a_num(char) + letra_a_num(k)
+                               ~~~~~~~~~~~^^^
+  File "C:\Users\GaizkaClase\IdeaProjects\Descifrador\Python_backend\vigenere.py", line 27, in letra_a_num
+    return ABC.index(letra)
+           ~~~~~~~~~^^^^^^^
+ValueError: substring not found
+2025-11-13 11:40:39,375 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 11:40:39] "[35m[1mPOST /api/vigenere/cifrar HTTP/1.1[0m" 500 -
+2025-11-13 11:40:47,777 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-13 11:40:47,777 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-13 11:40:47,779 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:40:48,075 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:40:48,077 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:40:54,998 - root - ERROR - Error inesperado en cifrar: substring not found
+Traceback (most recent call last):
+  File "C:\Users\GaizkaClase\IdeaProjects\Descifrador\Python_backend\app.py", line 107, in cifrar
+    texto_cifrado = cifrar_vigenere(texto, clave)
+  File "C:\Users\GaizkaClase\IdeaProjects\Descifrador\Python_backend\vigenere.py", line 95, in cifrar
+    suma = letra_a_num(char) + letra_a_num(k)
+                               ~~~~~~~~~~~^^^
+  File "C:\Users\GaizkaClase\IdeaProjects\Descifrador\Python_backend\vigenere.py", line 27, in letra_a_num
+    return ABC.index(letra)
+           ~~~~~~~~~^^^^^^^
+ValueError: substring not found
+2025-11-13 11:40:55,002 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 11:40:55] "[35m[1mPOST /api/vigenere/cifrar HTTP/1.1[0m" 500 -
+2025-11-13 11:44:24,466 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:44:24,502 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:44:24,860 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:44:24,862 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:44:31,594 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:44:31,627 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:44:31,939 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:44:31,942 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:44:41,921 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:44:41,951 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:44:42,283 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:44:42,286 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:44:43,511 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:44:43,540 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:44:43,861 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:44:43,863 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:44:48,449 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-13 11:44:48,449 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-13 11:44:48,450 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:44:48,730 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:44:48,733 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:45:15,763 - root - ERROR - Error inesperado en cifrar: substring not found
+Traceback (most recent call last):
+  File "C:\Users\GaizkaClase\IdeaProjects\Descifrador\Python_backend\app.py", line 107, in cifrar
+    texto_cifrado = cifrar_vigenere(texto, clave)
+  File "C:\Users\GaizkaClase\IdeaProjects\Descifrador\Python_backend\vigenere.py", line 77, in cifrar
+    suma = letra_a_num(char) + letra_a_num(k)
+                               ~~~~~~~~~~~^^^
+  File "C:\Users\GaizkaClase\IdeaProjects\Descifrador\Python_backend\vigenere.py", line 27, in letra_a_num
+    return ABC.index(letra)
+           ~~~~~~~~~^^^^^^^
+ValueError: substring not found
+2025-11-13 11:45:15,764 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 11:45:15] "[35m[1mPOST /api/vigenere/cifrar HTTP/1.1[0m" 500 -
+2025-11-13 11:47:20,928 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 11:47:20,961 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:48:13,804 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-13 11:48:13,805 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-13 11:48:13,806 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 11:48:14,086 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 11:48:14,088 - werkzeug - INFO -  * Debugger PIN: 102-941-964
+2025-11-13 11:48:30,510 - root - INFO - Texto cifrado exitosamente (longitud: 4)
+2025-11-13 11:48:30,510 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 11:48:30] "POST /api/vigenere/cifrar HTTP/1.1" 200 -
+2025-11-13 11:48:37,138 - root - INFO - Texto cifrado exitosamente (longitud: 12)
+2025-11-13 11:48:37,138 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 11:48:37] "POST /api/vigenere/cifrar HTTP/1.1" 200 -
+2025-11-13 11:48:42,817 - root - INFO - Texto descifrado exitosamente (longitud: 12)
+2025-11-13 11:48:42,818 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 11:48:42] "POST /api/vigenere/descifrar HTTP/1.1" 200 -
+2025-11-13 14:22:55,866 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-13 14:22:55,867 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-13 14:22:55,870 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 14:22:56,368 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 14:22:56,372 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-13 14:23:11,851 - root - INFO - Texto cifrado exitosamente (longitud: 4)
+2025-11-13 14:23:11,852 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 14:23:11] "POST /api/vigenere/cifrar HTTP/1.1" 200 -
+2025-11-13 14:23:40,151 - root - INFO - Texto descifrado exitosamente (longitud: 4)
+2025-11-13 14:23:40,151 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 14:23:40] "POST /api/vigenere/descifrar HTTP/1.1" 200 -
+2025-11-13 14:24:10,801 - root - INFO - Texto cifrado exitosamente (longitud: 12)
+2025-11-13 14:24:10,802 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 14:24:10] "POST /api/vigenere/cifrar HTTP/1.1" 200 -
+2025-11-13 14:24:36,886 - root - INFO - Texto descifrado exitosamente (longitud: 12)
+2025-11-13 14:24:36,886 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 14:24:36] "POST /api/vigenere/descifrar HTTP/1.1" 200 -
+2025-11-13 14:24:56,866 - root - INFO - Texto cifrado exitosamente (longitud: 12)
+2025-11-13 14:24:56,867 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 14:24:56] "POST /api/vigenere/cifrar HTTP/1.1" 200 -
+2025-11-13 15:00:17,723 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 15:00:17,939 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 15:00:18,432 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 15:00:18,435 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-13 15:00:31,699 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-13 15:00:31,748 - werkzeug - INFO -  * Restarting with stat
+2025-11-13 15:00:32,966 - werkzeug - WARNING -  * Debugger is active!
+2025-11-13 15:00:32,970 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-13 15:22:33,797 - root - INFO - Texto cifrado exitosamente (longitud: 13)
+2025-11-13 15:22:33,798 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 15:22:33] "POST /api/vigenere/cifrar HTTP/1.1" 200 -
+2025-11-13 15:23:08,323 - root - INFO - Texto descifrado exitosamente (longitud: 13)
+2025-11-13 15:23:08,323 - werkzeug - INFO - 127.0.0.1 - - [13/Nov/2025 15:23:08] "POST /api/vigenere/descifrar HTTP/1.1" 200 -
+2025-11-14 10:35:29,233 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 10:35:29,233 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 10:35:29,235 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 10:35:29,547 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 10:35:29,549 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 10:36:00,637 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 10:36:00,638 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 10:36:00,640 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 10:36:01,290 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 10:36:01,293 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 10:46:43,811 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 10:46:43,811 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 10:46:43,813 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 10:46:44,163 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 10:46:44,165 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:38:35,965 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 11:38:35,965 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 11:38:35,966 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:38:36,260 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:38:36,262 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:39:21,029 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 11:39:21,029 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 11:39:21,031 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:39:21,652 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:39:21,655 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:40:29,159 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 11:40:29,159 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 11:40:29,160 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:40:29,888 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:40:29,893 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:46:40,789 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 11:46:40,790 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 11:46:40,793 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:46:41,281 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:46:41,286 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:47:44,952 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:47:45,001 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:47:45,002 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:47:45,053 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:47:45,321 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:47:45,362 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:48:07,569 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 11:48:07,569 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 11:48:07,572 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:48:08,364 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:48:08,369 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:52:38,450 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:52:38,496 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:52:38,924 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:52:38,927 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:52:53,588 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:52:53,618 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:52:54,149 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:52:54,152 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:53:01,635 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:53:01,672 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:53:02,200 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:53:02,205 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:53:06,114 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:53:06,155 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:53:06,576 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:53:06,581 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:53:13,250 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:53:13,287 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:53:13,617 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:53:13,619 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:53:28,602 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:53:28,650 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:53:29,069 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:53:29,071 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:53:31,969 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:53:32,007 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:53:32,407 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:53:32,409 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:53:33,881 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:53:33,921 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:53:34,412 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:53:34,417 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:54:16,825 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:54:16,869 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:54:17,325 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:54:17,327 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:54:21,182 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:54:21,226 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:54:21,836 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:54:21,841 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:54:28,277 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:54:28,320 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:54:28,869 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:54:28,874 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:54:32,753 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:54:32,789 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:54:33,471 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:54:33,474 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:55:44,705 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:55:44,755 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:55:45,209 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:55:45,211 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:55:53,384 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 11:55:53,384 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 11:55:53,385 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:55:53,777 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:55:53,780 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:57:17,223 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:57:17,267 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:57:17,352 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:57:17,396 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:57:38,646 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 11:57:38,646 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 11:57:38,650 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 11:57:39,280 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 11:57:39,283 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 11:59:41,032 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 11:59:41,084 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:00:30,634 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:00:30,635 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:00:30,638 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:00:31,479 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:00:31,484 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:03:25,981 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:03:25,981 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:03:25,983 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:03:26,479 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:03:26,481 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:05:12,191 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:05:12,191 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:05:12,192 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:05:12,479 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:05:12,482 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:05:37,410 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:05:37,411 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:05:37,412 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:05:37,696 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:05:37,699 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:05:43,842 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:05:43,843 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:05:43,844 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:05:44,138 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:05:44,140 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:08:59,089 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-14 12:08:59,118 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:08:59,444 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:08:59,447 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:08:59,725 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-14 12:08:59,766 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:08:59,950 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-14 12:09:00,226 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\vigenere.py', reloading
+2025-11-14 12:09:00,274 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:09:00,489 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:09:00,494 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:09:00,958 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:09:00,963 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:13,751 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:13:13,751 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:13:13,802 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:13,802 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:14,417 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:14,419 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:14,420 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:14,421 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:14,603 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:13:14,632 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:14,942 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:14,945 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:16,120 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:13:16,162 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:13:16,173 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:16,182 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:13:16,224 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:16,224 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:16,558 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:16,561 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:16,752 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:16,756 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:16,790 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:16,795 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:20,362 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:13:20,362 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:13:20,364 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:21,052 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:21,055 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:51,026 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:13:51,054 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:51,387 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:51,390 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:51,519 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:13:51,558 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:51,933 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:51,936 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:52,110 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:13:52,119 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:13:52,152 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:52,164 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:52,388 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:13:52,444 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:52,654 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:13:52,687 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:13:52,750 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:52,755 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:52,776 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:52,781 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:52,995 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:52,997 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:13:53,002 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:13:53,007 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:14:31,172 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:14:31,172 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:14:31,175 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:14:31,930 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:14:31,936 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:14:43,001 - root - ERROR - La clave de Vigenère debe contener solo letras (sin números ni símbolos).
+2025-11-14 12:14:43,001 - werkzeug - INFO - 127.0.0.1 - - [14/Nov/2025 12:14:43] "[31m[1mPOST /api/vigenere/cifrar HTTP/1.1[0m" 400 -
+2025-11-14 12:15:38,702 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:15:38,702 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:15:38,707 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:15:39,503 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:15:39,508 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:05,624 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:16:05,653 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:16:05,684 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:05,685 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:06,036 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:16:06,039 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:16:06,043 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:06,045 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:06,061 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:16:06,087 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:06,093 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:06,111 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:06,122 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:16:06,172 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:06,248 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:06,251 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:06,641 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:06,644 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:06,646 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:06,649 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:06,679 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:06,685 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:06,733 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:06,738 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:07,897 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:16:07,940 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:08,282 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:16:08,331 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:08,352 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:16:08,388 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:16:08,398 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:08,404 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:16:08,428 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:16:08,437 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:08,455 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:08,491 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:08,515 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:08,519 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:08,757 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:08,759 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:08,900 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:08,906 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:08,985 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:08,990 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:09,019 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:09,025 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:09,046 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:09,051 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:30,076 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:16:30,077 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:16:30,079 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:16:30,728 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:16:30,734 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:16:46,834 - root - ERROR - La clave de Vigenère debe contener solo letras (sin números ni símbolos).
+2025-11-14 12:16:46,834 - werkzeug - INFO - 127.0.0.1 - - [14/Nov/2025 12:16:46] "[31m[1mPOST /api/vigenere/descifrar HTTP/1.1[0m" 400 -
+2025-11-14 12:17:28,070 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:17:28,098 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:17:28,327 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:17:28,387 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:17:28,435 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:17:28,438 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:17:28,616 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:17:28,664 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:17:28,934 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:17:28,935 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:17:28,939 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:17:28,941 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:17:28,975 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:17:28,978 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:17:28,986 - werkzeug - INFO -  * Detected change in 'C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend\\app.py', reloading
+2025-11-14 12:17:28,992 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:17:29,024 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:17:29,037 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:17:29,052 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:17:29,054 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:17:29,529 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:17:29,535 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:17:29,535 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:17:29,541 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:17:29,571 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:17:29,576 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:17:29,587 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:17:29,592 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:20:52,099 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:20:52,099 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:20:52,102 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:20:52,578 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:20:52,583 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:22:21,590 - root - ERROR - La clave de Vigenère debe contener solo letras (sin números ni símbolos).
+2025-11-14 12:22:21,591 - werkzeug - INFO - 127.0.0.1 - - [14/Nov/2025 12:22:21] "[31m[1mPOST /api/vigenere/cifrar HTTP/1.1[0m" 400 -
+2025-11-14 12:22:26,706 - root - INFO - Texto cifrado exitosamente (longitud: 4)
+2025-11-14 12:22:26,707 - werkzeug - INFO - 127.0.0.1 - - [14/Nov/2025 12:22:26] "POST /api/vigenere/cifrar HTTP/1.1" 200 -
+2025-11-14 12:22:33,816 - root - INFO - Texto descifrado exitosamente (longitud: 4)
+2025-11-14 12:22:33,816 - werkzeug - INFO - 127.0.0.1 - - [14/Nov/2025 12:22:33] "POST /api/vigenere/descifrar HTTP/1.1" 200 -
+2025-11-14 12:22:38,044 - root - ERROR - La clave de Vigenère debe contener solo letras (sin números ni símbolos).
+2025-11-14 12:22:38,045 - werkzeug - INFO - 127.0.0.1 - - [14/Nov/2025 12:22:38] "[31m[1mPOST /api/vigenere/descifrar HTTP/1.1[0m" 400 -
+2025-11-14 12:28:21,887 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:28:21,887 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:28:21,888 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:28:22,339 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:28:22,341 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:28:43,016 - root - ERROR - La clave de Vigenère debe contener solo letras (sin números ni símbolos).
+2025-11-14 12:28:43,016 - werkzeug - INFO - 127.0.0.1 - - [14/Nov/2025 12:28:43] "[31m[1mPOST /api/vigenere/cifrar HTTP/1.1[0m" 400 -
+2025-11-14 12:28:49,064 - root - INFO - Texto cifrado exitosamente (longitud: 4)
+2025-11-14 12:28:49,064 - werkzeug - INFO - 127.0.0.1 - - [14/Nov/2025 12:28:49] "POST /api/vigenere/cifrar HTTP/1.1" 200 -
+2025-11-14 12:28:55,090 - root - INFO - Texto descifrado exitosamente (longitud: 4)
+2025-11-14 12:28:55,091 - werkzeug - INFO - 127.0.0.1 - - [14/Nov/2025 12:28:55] "POST /api/vigenere/descifrar HTTP/1.1" 200 -
+2025-11-14 12:28:58,914 - root - ERROR - La clave de Vigenère debe contener solo letras (sin números ni símbolos).
+2025-11-14 12:28:58,914 - werkzeug - INFO - 127.0.0.1 - - [14/Nov/2025 12:28:58] "[31m[1mPOST /api/vigenere/cifrar HTTP/1.1[0m" 400 -
+2025-11-14 12:33:04,315 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:33:04,315 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:33:04,316 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:33:04,622 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:33:04,624 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 12:55:50,926 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 12:55:50,926 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 12:55:50,929 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 12:55:51,469 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 12:55:51,472 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 13:12:54,372 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 13:12:54,372 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 13:12:54,374 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 13:12:54,665 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 13:12:54,667 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 13:29:24,275 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 13:29:24,276 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 13:29:24,277 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 13:29:24,720 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 13:29:24,723 - werkzeug - INFO -  * Debugger PIN: 106-108-262
+2025-11-14 13:33:26,312 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-11-14 13:33:26,312 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-14 13:33:26,314 - werkzeug - INFO -  * Restarting with stat
+2025-11-14 13:33:26,704 - werkzeug - WARNING -  * Debugger is active!
+2025-11-14 13:33:26,707 - werkzeug - INFO -  * Debugger PIN: 106-108-262
