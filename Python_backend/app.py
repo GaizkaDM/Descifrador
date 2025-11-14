@@ -66,8 +66,8 @@ def cifrar():
     """
     Endpoint para cifrar texto con cifrado Vigenère.
 
-    ARGS:
-        Recibe un JSON con 'texto' y 'clave', valida entrada y devuelve el texto cifrado.
+    Recibe un JSON con 'texto' y 'clave', valida entrada y devuelve el texto cifrado.
+
     Returns:
         En caso de error devuelve un mensaje descriptivo con código HTTP adecuado.
     """
@@ -104,6 +104,11 @@ def cifrar():
             logger.error(mensaje)
             return jsonify({'error': mensaje}), 400
 
+        if not es_clave_valida_vigenere(clave):
+            mensaje = 'La clave de Vigenère debe contener solo letras (sin números ni símbolos).'
+            logger.error(mensaje)
+            return jsonify({'error': mensaje}), 400
+
         texto_cifrado = cifrar_vigenere(texto, clave)
         logger.info("Texto cifrado exitosamente (longitud: %d)", len(texto))
         return jsonify({
@@ -112,18 +117,33 @@ def cifrar():
             'longitud_cifrado': len(texto_cifrado)
         }), 200
 
+    except ValueError as ve:
+        logger.error("Error de validación: %s", str(ve))
+        return jsonify({'error': str(ve)}), 400
     except Exception as e:
-        logger.error("Error inesperado en cifrar: %s", str(e), exc_info=True)
+        logger.error("Error inesperado en cifrar: %s", str(e), exc_info=True)  # Asegura que
         return jsonify({'error': 'Error interno del servidor'}), 500
 
+
+
+def es_clave_valida_vigenere(clave):
+    """Comprueba que la clave sea una clave valida
+
+    Args:
+        clave (String): clave que hay que mirar si es valida
+
+    Returns:
+        _bool_: True si es valida, False en caso contrario
+    """
+    # Solo permite letras (mayúsculas y minúsculas, sin espacios, números ni símbolos)
+    return bool(re.fullmatch(r'[A-Za-z]+', clave.strip() if clave else ""))
 
 @app.route('/api/vigenere/descifrar', methods=['POST'])
 def descifrar():
     """
     Endpoint para descifrar texto con cifrado Vigenère.
 
-    ARGS:
-        Recibe un JSON con 'texto' y 'clave', valida entrada y devuelve el texto descifrado.
+    Recibe un JSON con 'texto' y 'clave', valida entrada y devuelve el texto descifrado.
 
     Returns:
         En caso de error devuelve un mensaje descriptivo con código HTTP adecuado.
@@ -161,6 +181,11 @@ def descifrar():
             logger.error(mensaje)
             return jsonify({'error': mensaje}), 400
 
+        if not es_clave_valida_vigenere(clave):
+            mensaje = 'La clave de Vigenère debe contener solo letras (sin números ni símbolos).'
+            logger.error(mensaje)
+            return jsonify({'error': mensaje}), 400
+
         texto_descifrado = descifrar_vigenere(texto_cifrado, clave)
         logger.info("Texto descifrado exitosamente (longitud: %d)", len(texto_cifrado))
         return jsonify({
@@ -168,7 +193,9 @@ def descifrar():
             'longitud_cifrado': len(texto_cifrado),
             'longitud_descifrado': len(texto_descifrado)
         }), 200
-
+    except ValueError as ve:
+        logger.error("Error de validación: %s", str(ve))
+        return jsonify({'error': str(ve)}), 400
     except Exception as e:
         logger.error("Error inesperado en descifrar: %s", str(e), exc_info=True)
         return jsonify({'error': 'Error interno del servidor'}), 500
