@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -37,10 +38,16 @@ public class Main extends Application
     @Override
     public void start(Stage stage) throws Exception {
         try {
-            ProcessBuilder pb = new ProcessBuilder("python", "../Python_backend/app.py");
-            pb.redirectErrorStream(true);
-            Process process = pb.start();
+            String env = System.getProperty("env", "prod");
+            String rutaApi = "prod".equals(env)
+                    ? "C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend"
+                    : "Python_backend";
 
+            ProcessBuilder pb = new ProcessBuilder("python", "app.py");
+            pb.directory(new File(rutaApi));
+            pb.redirectErrorStream(true); // junta error y salida
+
+            Process process = pb.start();
             /**
              * <h4>Hilo de lectura de la API Python</h4>
              * Este hilo independiente evita bloquear el hilo principal de JavaFX
@@ -57,11 +64,11 @@ public class Main extends Application
                 }
             }).start();
 
-            // Aquí puedes poner un delay o lógica para esperar a que la API esté lista si es necesario
+            // Esperar 3 segundos para que la API arranque (mejor hacer check HTTP si puedes)
+            Thread.sleep(3000);
 
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
-            // Manejo de fallo al arrancar API
         }
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainView.fxml"));
@@ -72,6 +79,7 @@ public class Main extends Application
         stage.setTitle("Descifrador");
         stage.show();
     }
+
 
     /**
      * <h3>Método main</h3>
