@@ -682,6 +682,7 @@ public class MainController {
     private void handleLimpiarEntrada() {
         if (textoEntradaArea != null) {
             textoEntradaArea.clear();
+            textoSalidaArea.clear();
         }
         rutaImagenSeleccionada = null; // muy importante
         actualizarStatus("Entrada limpiada");
@@ -787,7 +788,7 @@ public class MainController {
         manualMenuItem.setText(bundle.getString("manual"));
         sobreNosotrosMenuItem.setText(bundle.getString("sobre_nosotros"));
         claveLabel.setText(bundle.getString("clave"));
-        claveField.setPromptText(bundle.getString("introduce_clave"));
+        claveField.setPromptText(bundle.getString("introduce_wizard_key"));
         algoritmoLabel.setText(bundle.getString("algoritmo"));
         algoritmoCombo.getItems().setAll(bundle.getString("vigenere"), bundle.getString("aes"));
         cifrarBtn.setText(bundle.getString("cifrar"));

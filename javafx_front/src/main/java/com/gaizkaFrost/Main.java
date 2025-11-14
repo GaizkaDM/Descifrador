@@ -3,6 +3,7 @@ package com.gaizkaFrost;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -38,6 +39,7 @@ public class Main extends Application
     @Override
     public void start(Stage stage) throws Exception {
         try {
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/imagenes/icono.png")));
             String env = System.getProperty("env", "prod");
             String rutaApi = "prod".equals(env)
                     ? "C:\\Users\\GaizkaClase\\IdeaProjects\\Descifrador\\Python_backend"
