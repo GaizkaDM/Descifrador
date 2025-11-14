@@ -110,3 +110,15 @@ javax.crypto.AEADBadTagException: Tag mismatch
 2025-11-14 12:50:20 [JavaFX Application Thread] DEBUG com.gaizkaFrost.MainController - Status actualizado: Listo
 2025-11-14 12:55:33 [JavaFX Application Thread] INFO  com.gaizkaFrost.MainController - Inicializando MainController
 2025-11-14 12:55:33 [JavaFX Application Thread] DEBUG com.gaizkaFrost.MainController - Status actualizado: Listo
+2025-11-14 13:07:01 [JavaFX Application Thread] INFO  com.gaizkaFrost.MainController - Inicializando MainController
+2025-11-14 13:07:01 [JavaFX Application Thread] DEBUG com.gaizkaFrost.MainController - Status actualizado: Listo
+2025-11-14 13:07:29 [JavaFX Application Thread] INFO  com.gaizkaFrost.MainController - Inicializando MainController
+2025-11-14 13:07:29 [JavaFX Application Thread] DEBUG com.gaizkaFrost.MainController - Status actualizado: Listo
+2025-11-14 13:08:25 [JavaFX Application Thread] INFO  com.gaizkaFrost.MainController - Inicializando MainController
+2025-11-14 13:08:25 [JavaFX Application Thread] DEBUG com.gaizkaFrost.MainController - Status actualizado: Listo
+2025-11-14 13:09:03 [JavaFX Application Thread] INFO  com.gaizkaFrost.MainController - Inicializando MainController
+2025-11-14 13:09:03 [JavaFX Application Thread] DEBUG com.gaizkaFrost.MainController - Status actualizado: Listo
+2025-11-14 13:12:45 [JavaFX Application Thread] INFO  com.gaizkaFrost.MainController - Inicializando MainController
+2025-11-14 13:12:45 [JavaFX Application Thread] DEBUG com.gaizkaFrost.MainController - Status actualizado: Listo
+2025-11-14 13:13:36 [JavaFX Application Thread] INFO  com.gaizkaFrost.MainController - Inicializando MainController
+2025-11-14 13:13:36 [JavaFX Application Thread] DEBUG com.gaizkaFrost.MainController - Status actualizado: Listo
